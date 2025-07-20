@@ -36,7 +36,14 @@ Hi! I'm **Brielle Cainday**, a passionate Front-End Developer focused on creatin
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="src/assets/profile.jpg" alt="Profile Screenshot" width="300" />
+  <img src="src/assets/quotlab.jpg" alt="Quote Lab Screenshot" width="220" style="margin:8px;" />
+  <img src="src/assets/isync.jpg" alt="iSync Screenshot" width="220" style="margin:8px;" />
+  <img src="src/assets/orgbee.jpg" alt="Orgbee Screenshot" width="220" style="margin:8px;" />
+  <img src="src/assets/wolfie.jpg" alt="Wolfie Match Screenshot" width="220" style="margin:8px;" />
+</p>
+
+<p align="center">
+  <b>Quote Lab</b> &nbsp; &nbsp; <b>iSync</b> &nbsp; &nbsp; <b>Orgbee</b> &nbsp; &nbsp; <b>Wolfie Match</b>
 </p>
 
 ---
