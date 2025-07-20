@@ -1,7 +1,5 @@
 # Brielle Cainday | Front-End Developer Portfolio
 
-![Portfolio Banner](src/assets/profile.jpg)
-
 <p align="center">
   <b>Brielle Cainday</b> &bull; Front-End Developer<br/>
   <a href="https://www.linkedin.com/in/bradley-cainday-a76382349/">LinkedIn</a> | <a href="https://github.com/Cainday-Bradley">GitHub</a> | <a href="mailto:bradleycainday@gmail.com">Email</a>
