@@ -1,69 +1,82 @@
-# React + TypeScript + Vite
+# Brielle Cainday | Front-End Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Portfolio Banner](src/assets/profile.jpg)
 
-Currently, two official plugins are available:
+<p align="center">
+  <b>Brielle Cainday</b> &bull; Front-End Developer<br/>
+  <a href="https://www.linkedin.com/in/bradley-cainday-a76382349/">LinkedIn</a> | <a href="https://github.com/Cainday-Bradley">GitHub</a> | <a href="mailto:bradleycainday@gmail.com">Email</a>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 About Me
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Hi! I'm **Brielle Cainday**, a passionate Front-End Developer focused on creating beautiful, user-friendly web experiences. I specialize in modern web technologies like React, TypeScript, and Tailwind CSS, and love building projects that make a difference.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🌟 Features
+- Responsive, modern design with dark/light theme toggle
+- Animated sections using Framer Motion
+- Projects showcase with live links
+- Downloadable resume
+- Accessible, validated contact form
+- SEO and social sharing optimized
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E)
+![Framer Motion](https://img.shields.io/badge/Framer%20Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 📸 Screenshots
+
+<p align="center">
+  <img src="src/assets/profile.jpg" alt="Profile Screenshot" width="300" />
+</p>
+
+---
+
+## 🖥️ Getting Started
+
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/Cainday-Bradley/my_portfolio.git
+   cd my_portfolio
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+4. **Open in your browser:**
+   Visit [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 📄 Resume
+
+[Download Resume](src/assets/Bradley%20Cainday%20-%20Resume.pdf)
+
+---
+
+## 📬 Contact
+
+- **Email:** bradleycainday@gmail.com
+- **LinkedIn:** [Brielle Cainday](https://www.linkedin.com/in/bradley-cainday-a76382349/)
+- **GitHub:** [Cainday-Bradley](https://github.com/Cainday-Bradley)
+
+---
+
+<p align="center">
+  <i>Thank you for visiting my portfolio!</i>
+</p>
