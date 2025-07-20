@@ -138,7 +138,7 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className={`border-t py-12 mt-20 transition-colors duration-300 ${
+      <footer className={`border-t py-12 transition-colors duration-300 ${
         isDark ? 'bg-black/80 border-white/10' : 'bg-gray-50/80 border-gray-200'
       }`}>
         <div className="max-w-7xl mx-auto px-6">
