@@ -219,8 +219,8 @@ export default function Projects({ isDark }: ProjectsProps) {
                         isDark ? 'text-white/60 hover:text-white' : 'text-gray-600 hover:text-gray-900'
                       }`}
                     >
-                      <span>View Code</span>
-                      <FaGithub className="w-3 h-3 group-hover/link:scale-110 transition-transform" />
+                      {/* <span>View Code</span>
+                      <FaGithub className="w-3 h-3 group-hover/link:scale-110 transition-transform" /> */}
                     </a>
                   </div>
                 </div>
