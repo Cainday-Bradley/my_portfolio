@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaLinkedin, FaGithub } from "react-icons/fa";
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
 
 interface ContactProps {
   isDark: boolean;
@@ -13,6 +14,9 @@ export default function Contact({ isDark }: ContactProps) {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const LINKEDIN_URL = "https://www.linkedin.com/in/bradley-cainday-a76382349/";
   const GITHUB_URL = "https://github.com/Cainday-Bradley";
+  const SERVICE_ID = 'service_f9m0u5c';
+  const TEMPLATE_ID = 'template_8ocp4gn';
+  const PUBLIC_KEY = '2tO5Iy9CjB5OU5RwE';
 
   function validate() {
     const newErrors: { [key: string]: string } = {};
@@ -26,26 +30,26 @@ export default function Contact({ isDark }: ContactProps) {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const formEl = e.target as HTMLFormElement;
+    // If honeypot is filled, silently fail
+    if ((formEl.elements.namedItem('_gotcha') as HTMLInputElement)?.value) return;
     const validationErrors = validate();
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length > 0) return;
     setLoading(true);
-    const data = new FormData();
-    Object.entries(form).forEach(([k, v]) => data.append(k, v));
+    const templateParams = {
+      from_name: form.name,
+      from_email: form.email,
+      subject: form.subject,
+      message: form.message,
+      site_url: window.location.origin,
+    };
     try {
-      const response = await fetch('https://formspree.io/f/mwkgyqzv', {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' },
-      });
-      if (response.ok) {
-        setSubmitted(true);
-        setForm({ name: '', email: '', subject: '', message: '' });
-        setErrors({});
-      } else {
-        setErrors({ form: 'There was an error sending your message. Please try again later.' });
-      }
-    } catch {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+      setSubmitted(true);
+      setForm({ name: '', email: '', subject: '', message: '' });
+      setErrors({});
+    } catch (error) {
       setErrors({ form: 'There was an error sending your message. Please try again later.' });
     } finally {
       setLoading(false);
@@ -210,6 +214,11 @@ export default function Contact({ isDark }: ContactProps) {
               <div className={`text-center py-12 text-lg font-semibold transition-colors duration-300 ${isDark ? 'text-green-400' : 'text-green-700'}`}>Thank you! Your message has been sent.</div>
             ) : (
             <form className="space-y-6" onSubmit={handleSubmit} noValidate>
+              {/* Honeypot field for spam protection */}
+              <div style={{ display: 'none' }}>
+                <label htmlFor="_gotcha">Leave this field blank</label>
+                <input type="text" name="_gotcha" id="_gotcha" tabIndex={-1} autoComplete="off" />
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className={`block text-sm font-medium mb-2 transition-colors duration-300 ${
@@ -220,7 +229,7 @@ export default function Contact({ isDark }: ContactProps) {
                   <input
                     type="text"
                     id="name"
-                    name="name"
+                    name="from_name"
                     required
                     className={`w-full px-4 py-3 border rounded-xl placeholder-white/50 focus:outline-none transition-all ${
                       isDark 
@@ -244,7 +253,7 @@ export default function Contact({ isDark }: ContactProps) {
                   <input
                     type="email"
                     id="email"
-                    name="email"
+                    name="from_email"
                     required
                     className={`w-full px-4 py-3 border rounded-xl placeholder-white/50 focus:outline-none transition-all ${
                       isDark 
