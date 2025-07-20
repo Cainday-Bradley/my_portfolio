@@ -1,36 +1,49 @@
 import { motion } from "framer-motion";
-import { FaExternalLinkAlt, FaGithub, FaReact, FaAngular, FaVuejs } from "react-icons/fa";
+import { FaExternalLinkAlt, FaGithub, FaAngular } from "react-icons/fa";
+
+const UnityIcon = (
+  <svg viewBox="0 0 32 32" width="1.5em" height="1.5em" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <polygon fill="#222" points="16,2 30,9.5 30,22.5 16,30 2,22.5 2,9.5"/>
+      <polygon fill="#fff" points="16,5 27,11 27,21 16,27 5,21 5,11"/>
+      <polygon fill="#222" points="16,8 24,12 24,20 16,24 8,20 8,12"/>
+    </g>
+  </svg>
+);
 
 const projects = [
   {
     name: "Quote Lab",
     url: "https://quotlabpuptcapstone.online/",
     role: "Front-End Developer",
-    description: "A comprehensive quote management platform for students and teachers, featuring real-time collaboration and advanced analytics.",
+    description:
+      "A web application for DOST using Angular and Laravel that enables clients to request quotations from various laboratories and automatically generate professional PDF documents delivering a seamless and user-friendly experience.",
     image: "/quote-lab.jpg",
     github: "#",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
-    icon: <FaReact className="text-cyan-500" />
+    technologies: ["Angular", "Laravel", "PHP", "MySQL"],
+    icon: <FaAngular className="text-red-500" />,
   },
   {
     name: "iSync",
     url: "https://isyncpuptcapstone.net/",
     role: "Front-End Developer",
-    description: "A collaborative productivity tool designed for academic teams, with project management and communication features.",
+    description:
+      "A website for DOST-NML, built using Angular and Laravel and integrated into the QuotLab system. The platform streamlines the report generation process from quotations, featuring a dedicated checker role to ensure the accuracy of calibrated data before finalizing reports. Once verified, the system automatically generates certifications, enhancing efficiency and accuracy in calibration reporting.",
     image: "/isync.jpg",
     github: "#",
-    technologies: ["Angular", "TypeScript", "SCSS", "Firebase"],
-    icon: <FaAngular className="text-red-500" />
+    technologies: ["Angular", "Laravel", "PHP", "MySQL"],
+    icon: <FaAngular className="text-red-500" />,
   },
   {
     name: "Wolfie Match",
     url: "https://gd.games/purplewolfe/wolfie-match",
     role: "Game Graphic Artist",
-    description: "An engaging puzzle game for web browsers with beautiful graphics and smooth gameplay mechanics.",
+    description:
+      "The game was developed in Unity 3D, combining engaging gameplay with charming retro-style visuals to enhance the overall player experience.",
     image: "/wolfie-match.jpg",
     github: "#",
-    technologies: ["JavaScript", "Canvas API", "WebGL", "Game Design"],
-    icon: <FaVuejs className="text-green-500" />
+    technologies: ["Unity 3D", "Aseprite"],
+    icon: UnityIcon,
   },
 ];
 
@@ -162,34 +175,6 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="text-center"
-        >
-          <div className="bg-gradient-to-r from-black/50 to-black/30 backdrop-blur-sm border border-white/10 rounded-3xl p-12">
-            <h3 className="text-3xl font-bold text-white mb-6">
-              Ready to <span className="bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent">Collaborate</span>?
-            </h3>
-            <p className="text-white/70 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
-              I'm always excited to take on new projects and collaborate with amazing people. 
-              Let's create something incredible together that will make a real impact!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary flex items-center space-x-2 group">
-                <span>Start a Project</span>
-                <FaExternalLinkAlt className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="btn-secondary flex items-center space-x-2 group">
-                <span>View All Projects</span>
-                <FaGithub className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

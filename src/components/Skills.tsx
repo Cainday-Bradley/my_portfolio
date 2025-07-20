@@ -8,7 +8,7 @@ const skills = [
     level: "Advanced",
     description: "Building modern UIs with hooks and context",
     color: "from-cyan-400 to-blue-500",
-    experience: "3+ years"
+    experience: "1 year"
   },
   {
     name: "TypeScript",
@@ -16,7 +16,7 @@ const skills = [
     level: "Advanced",
     description: "Type-safe JavaScript development",
     color: "from-blue-500 to-indigo-600",
-    experience: "2+ years"
+    experience: "2 years"
   },
   {
     name: "Tailwind CSS",
@@ -24,7 +24,7 @@ const skills = [
     level: "Advanced",
     description: "Utility-first CSS framework",
     color: "from-teal-400 to-cyan-500",
-    experience: "3+ years"
+    experience: "1 year"
   },
   {
     name: "JavaScript",
@@ -32,7 +32,7 @@ const skills = [
     level: "Advanced",
     description: "Modern ES6+ development",
     color: "from-yellow-400 to-orange-500",
-    experience: "4+ years"
+    experience: "2 years"
   },
   {
     name: "Angular",
@@ -40,7 +40,7 @@ const skills = [
     level: "Intermediate",
     description: "Component-based architecture",
     color: "from-red-400 to-pink-500",
-    experience: "2+ years"
+    experience: "2 years"
   },
   {
     name: "Vue.js",
@@ -48,7 +48,7 @@ const skills = [
     level: "Intermediate",
     description: "Progressive framework development",
     color: "from-green-400 to-emerald-500",
-    experience: "1+ years"
+    experience: "1 year"
   },
   {
     name: "Node.js",
@@ -56,7 +56,7 @@ const skills = [
     level: "Intermediate",
     description: "Server-side JavaScript development",
     color: "from-green-500 to-emerald-600",
-    experience: "2+ years"
+    experience: "1 year"
   },
   {
     name: "Git",
@@ -64,13 +64,13 @@ const skills = [
     level: "Advanced",
     description: "Version control and collaboration",
     color: "from-orange-400 to-red-500",
-    experience: "3+ years"
+    experience: "2 years"
   }
 ];
 
 const additionalSkills = [
-  "HTML5", "CSS3", "REST APIs", "Responsive Design", "UI/UX Design", 
-  "Testing", "Figma", "Adobe XD", "Webpack", "Vite", "Next.js", "GraphQL"
+  "HTML", "CSS", "REST APIs", "Responsive Design", "UI/UX Design", 
+  "Testing", "Figma", "Vite", "Next.js"
 ];
 
 export default function Skills() {
@@ -193,7 +193,7 @@ export default function Skills() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <span className="text-white font-bold text-2xl">3+</span>
+                <span className="text-white font-bold text-2xl">2+</span>
               </div>
               <h4 className="text-xl font-semibold text-white mb-2">Years Experience</h4>
               <p className="text-white/60 text-sm">Building modern web applications</p>
@@ -201,7 +201,7 @@ export default function Skills() {
             
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <span className="text-white font-bold text-2xl">20+</span>
+                <span className="text-white font-bold text-2xl">4</span>
               </div>
               <h4 className="text-xl font-semibold text-white mb-2">Projects Completed</h4>
               <p className="text-white/60 text-sm">From small apps to enterprise solutions</p>
@@ -209,10 +209,10 @@ export default function Skills() {
             
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <span className="text-white font-bold text-2xl">15+</span>
+                <span className="text-white font-bold text-2xl">4</span>
               </div>
-              <h4 className="text-xl font-semibold text-white mb-2">Happy Clients</h4>
-              <p className="text-white/60 text-sm">Satisfied with my work quality</p>
+              <h4 className="text-xl font-semibold text-white mb-2">Projets Defended</h4>
+              <p className="text-white/60 text-sm">Satisfied with our work quality</p>
             </div>
           </div>
         </motion.div>

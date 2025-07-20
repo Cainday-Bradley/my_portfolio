@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaUserAstronaut, FaGithub, FaLinkedin, FaArrowRight, FaDownload, FaDribbble } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaArrowRight, FaDownload } from "react-icons/fa";
 
 export default function AboutMe() {
   return (
@@ -41,7 +41,7 @@ export default function AboutMe() {
                 className="text-5xl lg:text-7xl font-bold text-white leading-tight"
               >
                 Hi, I'm{" "}
-                <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-pink-300 to-pink-400 bg-clip-text text-transparent">
                   Brielle
                 </span>
               </motion.h1>
@@ -63,7 +63,7 @@ export default function AboutMe() {
               transition={{ delay: 0.5 }}
               className="text-lg text-white/70 leading-relaxed max-w-lg"
             >
-              Based in the Philippines, I'm a passionate developer and UI/UX designer focused on creating beautiful, 
+              I'm a passionate Front-End Developer focused on creating beautiful, 
               user-friendly web experiences that make a difference.
             </motion.p>
 
@@ -75,16 +75,12 @@ export default function AboutMe() {
               className="flex space-x-8"
             >
               <div className="text-center">
-                <div className="text-2xl font-bold text-white">3+</div>
+                <div className="text-2xl font-bold text-white">2+</div>
                 <div className="text-sm text-white/60">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-white">20+</div>
+                <div className="text-2xl font-bold text-white">4</div>
                 <div className="text-sm text-white/60">Projects Completed</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-white">15+</div>
-                <div className="text-sm text-white/60">Happy Clients</div>
               </div>
             </motion.div>
 
@@ -99,10 +95,16 @@ export default function AboutMe() {
                 <span>Hire Me</span>
                 <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="btn-secondary flex items-center space-x-2 group">
+              <a
+                href="/src/assets/Bradley Cainday - Resume.pdf"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary flex items-center space-x-2 group"
+              >
                 <FaDownload className="w-4 h-4" />
                 <span>Download CV</span>
-              </button>
+              </a>
             </motion.div>
 
             {/* Social Links */}
@@ -112,21 +114,12 @@ export default function AboutMe() {
               transition={{ delay: 0.8 }}
               className="flex items-center space-x-6 pt-8"
             >
-              <a href="#" className="social-link">
+              <a href="https://github.com/Cainday-Bradley" className="social-link" target="_blank" rel="noopener noreferrer">
                 <FaGithub className="w-5 h-5" />
               </a>
-              <a href="#" className="social-link">
+              <a href="https://www.linkedin.com/in/bradley-cainday-a76382349/" className="social-link" target="_blank" rel="noopener noreferrer">
                 <FaLinkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="social-link">
-                <FaDribbble className="w-5 h-5" />
-              </a>
-              <div className="flex items-center space-x-2 text-pink-400">
-                <span className="text-xl">●</span>
-                <a href="https://www.dribbble.com/brielle" className="text-sm hover:text-pink-300 transition-colors underline">
-                  www.dribbble.com/brielle
-                </a>
-              </div>
             </motion.div>
           </motion.div>
 
@@ -143,17 +136,13 @@ export default function AboutMe() {
               <div className="w-80 h-96 lg:w-96 lg:h-[500px] mx-auto relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-blue-500/20 rounded-3xl blur-xl"></div>
                 <img
-                  src="/profile.jpg"
+                  src="/src/assets/profile.jpg"
                   alt="Brielle"
                   className="relative w-full h-full object-cover rounded-3xl shadow-2xl border border-white/10"
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = "none";
                   }}
                 />
-                {/* Placeholder if no image */}
-                <div className="relative w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl flex items-center justify-center border border-white/10">
-                  <FaUserAstronaut className="w-32 h-32 text-white/20" />
-                </div>
               </div>
             </div>
 
@@ -193,27 +182,6 @@ export default function AboutMe() {
           <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center">
             <div className="w-1 h-3 bg-white/40 rounded-full mt-2 animate-bounce"></div>
           </div>
-        </div>
-      </motion.div>
-
-      {/* Chat Button */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1.2 }}
-        className="fixed bottom-8 right-8 z-40"
-      >
-        <button className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-4 rounded-full shadow-lg transition-all hover:scale-110 hover:shadow-green-500/25">
-          <div className="w-6 h-6 flex items-center justify-center">
-            <div className="flex space-x-1">
-              <div className="w-1 h-1 bg-white rounded-full animate-bounce"></div>
-              <div className="w-1 h-1 bg-white rounded-full animate-bounce delay-100"></div>
-              <div className="w-1 h-1 bg-white rounded-full animate-bounce delay-200"></div>
-            </div>
-          </div>
-        </button>
-        <div className="absolute -top-12 right-0 bg-white text-black px-3 py-2 rounded-lg text-sm font-medium shadow-lg">
-          Let's Chat
         </div>
       </motion.div>
     </section>

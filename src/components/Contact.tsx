@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaLinkedin, FaGithub, FaDribbble } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Contact() {
   return (
@@ -56,8 +56,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-white font-semibold">Email</h4>
-                  <a href="mailto:hellobrielle@gmail.com" className="text-white/70 hover:text-white transition-colors">
-                    hellobrielle@gmail.com
+                  <a href="mailto:bradleycainday@gmail.com" className="text-white/70 hover:text-white transition-colors">
+                    bradleycainday@gmail.com
                   </a>
                 </div>
               </div>
@@ -68,7 +68,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-white font-semibold">Location</h4>
-                  <p className="text-white/70">Philippines</p>
+                  <p className="text-white/70">Taguig City, Philippines</p>
                 </div>
               </div>
 
@@ -78,7 +78,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-white font-semibold">Phone</h4>
-                  <p className="text-white/70">Available upon request</p>
+                  <p className="text-white/70">09760292478</p>
                 </div>
               </div>
             </div>
@@ -87,14 +87,11 @@ export default function Contact() {
             <div>
               <h4 className="text-white font-semibold mb-4">Follow Me</h4>
               <div className="flex space-x-4">
-                <a href="#" className="social-link">
+                <a href="https://www.linkedin.com/in/bradley-cainday-a76382349/" className="social-link" target="_blank" rel="noopener noreferrer">
                   <FaLinkedin className="w-6 h-6" />
                 </a>
-                <a href="#" className="social-link">
+                <a href="https://github.com/Cainday-Bradley" className="social-link" target="_blank" rel="noopener noreferrer">
                   <FaGithub className="w-6 h-6" />
-                </a>
-                <a href="#" className="social-link">
-                  <FaDribbble className="w-6 h-6" />
                 </a>
               </div>
             </div>
