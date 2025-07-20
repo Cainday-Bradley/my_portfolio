@@ -5,12 +5,32 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import ThemeToggle from "./components/ThemeToggle";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    // Apply theme to document body
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDark]);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white font-sans">
+    <div className={`min-h-screen font-sans transition-colors duration-300 ${
+      isDark 
+        ? 'bg-gradient-to-br from-black via-gray-900 to-black text-white' 
+        : 'bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900'
+    }`}>
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
+      <header className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b transition-colors duration-300 ${
+        isDark 
+          ? 'bg-black/90 border-white/10' 
+          : 'bg-white/90 border-gray-200'
+      }`}>
         <div className="flex justify-between items-center p-6 max-w-7xl mx-auto">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-3">
@@ -19,25 +39,43 @@ function App() {
               </div>
               <div className="hidden sm:block">
                 <span className="text-xl font-bold bg-gradient-to-r from-pink-300 to-pink-400 bg-clip-text text-transparent">Brielle</span>
-                <div className="text-white/60 text-xs">Front-End Developer</div>
+                <div className={`text-xs transition-colors duration-300 ${
+                  isDark ? 'text-white/60' : 'text-gray-600'
+                }`}>Front-End Developer</div>
               </div>
             </div>
-            <span className="text-white/70 text-sm hidden lg:block border-l border-white/20 pl-4">bradleycainday@gmail.com</span>
+            <span className={`text-sm hidden lg:block border-l pl-4 transition-colors duration-300 ${
+              isDark ? 'text-white/70 border-white/20' : 'text-gray-600 border-gray-300'
+            }`}>bradleycainday@gmail.com</span>
           </div>
           
           <div className="flex items-center space-x-6">
             <nav className="hidden md:flex space-x-8">
-              <a href="#about" className="nav-link font-medium">About</a>
-              <a href="#skills" className="nav-link font-medium">Skills</a>
-              <a href="#projects" className="nav-link font-medium">Projects</a>
-              <a href="#contact" className="nav-link font-medium">Contact</a>
+              <a href="#about" className={`nav-link font-medium transition-colors duration-300 ${
+                isDark ? 'text-white/70 hover:text-white' : 'text-gray-700 hover:text-gray-900'
+              }`}>About</a>
+              <a href="#skills" className={`nav-link font-medium transition-colors duration-300 ${
+                isDark ? 'text-white/70 hover:text-white' : 'text-gray-700 hover:text-gray-900'
+              }`}>Skills</a>
+              <a href="#projects" className={`nav-link font-medium transition-colors duration-300 ${
+                isDark ? 'text-white/70 hover:text-white' : 'text-gray-700 hover:text-gray-900'
+              }`}>Projects</a>
+              <a href="#contact" className={`nav-link font-medium transition-colors duration-300 ${
+                isDark ? 'text-white/70 hover:text-white' : 'text-gray-700 hover:text-gray-900'
+              }`}>Contact</a>
             </nav>
-            <ThemeToggle />
+            <ThemeToggle isDark={isDark} setIsDark={setIsDark} />
             <button className="md:hidden p-2">
               <div className="w-6 h-6 flex flex-col justify-center space-y-1">
-                <div className="w-full h-0.5 bg-white"></div>
-                <div className="w-full h-0.5 bg-white"></div>
-                <div className="w-full h-0.5 bg-white"></div>
+                <div className={`w-full h-0.5 transition-colors duration-300 ${
+                  isDark ? 'bg-white' : 'bg-gray-900'
+                }`}></div>
+                <div className={`w-full h-0.5 transition-colors duration-300 ${
+                  isDark ? 'bg-white' : 'bg-gray-900'
+                }`}></div>
+                <div className={`w-full h-0.5 transition-colors duration-300 ${
+                  isDark ? 'bg-white' : 'bg-gray-900'
+                }`}></div>
               </div>
             </button>
           </div>
@@ -46,20 +84,28 @@ function App() {
 
       {/* Main Content */}
       <main className="pt-24">
-        <AboutMe />
-        <div className="bg-gradient-to-b from-transparent to-black/50">
-          <Skills />
+        <AboutMe isDark={isDark} />
+        <div className={`transition-colors duration-300 ${
+          isDark ? 'bg-gradient-to-b from-transparent to-black/50' : 'bg-gradient-to-b from-transparent to-gray-100/50'
+        }`}>
+          <Skills isDark={isDark} />
         </div>
-        <div className="bg-gradient-to-b from-black/50 to-transparent">
-          <Projects />
+        <div className={`transition-colors duration-300 ${
+          isDark ? 'bg-gradient-to-b from-black/50 to-transparent' : 'bg-gradient-to-b from-gray-100/50 to-transparent'
+        }`}>
+          <Projects isDark={isDark} />
         </div>
-        <div className="bg-gradient-to-b from-transparent to-black/50">
-          <Contact />
+        <div className={`transition-colors duration-300 ${
+          isDark ? 'bg-gradient-to-b from-transparent to-black/50' : 'bg-gradient-to-b from-transparent to-gray-100/50'
+        }`}>
+          <Contact isDark={isDark} />
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="bg-black/80 border-t border-white/10 py-12 mt-20">
+      <footer className={`border-t py-12 mt-20 transition-colors duration-300 ${
+        isDark ? 'bg-black/80 border-white/10' : 'bg-gray-50/80 border-gray-200'
+      }`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
@@ -67,33 +113,57 @@ function App() {
                 <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center overflow-hidden">
                   <img src="/src/assets/id.jpg" alt="Bradley Cainday" className="w-full h-full object-cover" />
                 </div>
-                <span className="text-lg font-bold text-white">Brielle</span>
+                <span className={`text-lg font-bold transition-colors duration-300 ${
+                  isDark ? 'text-white' : 'text-gray-900'
+                }`}>Brielle</span>
               </div>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className={`text-sm leading-relaxed transition-colors duration-300 ${
+                isDark ? 'text-white/60' : 'text-gray-600'
+              }`}>
                 Front-end developer passionate about creating beautiful, user-friendly web experiences.
               </p>
             </div>
             
             <div>
-              <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+              <h4 className={`font-semibold mb-4 transition-colors duration-300 ${
+                isDark ? 'text-white' : 'text-gray-900'
+              }`}>Quick Links</h4>
               <div className="space-y-2">
-                <a href="#about" className="block text-white/60 hover:text-white transition-colors text-sm">About</a>
-                <a href="#skills" className="block text-white/60 hover:text-white transition-colors text-sm">Skills</a>
-                <a href="#projects" className="block text-white/60 hover:text-white transition-colors text-sm">Projects</a>
-                <a href="#contact" className="block text-white/60 hover:text-white transition-colors text-sm">Contact</a>
+                <a href="#about" className={`block transition-colors text-sm ${
+                  isDark ? 'text-white/60 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                }`}>About</a>
+                <a href="#skills" className={`block transition-colors text-sm ${
+                  isDark ? 'text-white/60 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                }`}>Skills</a>
+                <a href="#projects" className={`block transition-colors text-sm ${
+                  isDark ? 'text-white/60 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                }`}>Projects</a>
+                <a href="#contact" className={`block transition-colors text-sm ${
+                  isDark ? 'text-white/60 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                }`}>Contact</a>
               </div>
             </div>
             
             <div>
-              <h4 className="text-white font-semibold mb-4">Contact</h4>
+              <h4 className={`font-semibold mb-4 transition-colors duration-300 ${
+                isDark ? 'text-white' : 'text-gray-900'
+              }`}>Contact</h4>
               <div className="space-y-2 text-sm">
-                <p className="text-white/60">bradleycainday@gmail.com</p>
-                <p className="text-white/60">Taguig City, Philippines</p>
+                <p className={`transition-colors duration-300 ${
+                  isDark ? 'text-white/60' : 'text-gray-600'
+                }`}>bradleycainday@gmail.com</p>
+                <p className={`transition-colors duration-300 ${
+                  isDark ? 'text-white/60' : 'text-gray-600'
+                }`}>Taguig City, Philippines</p>
                 <div className="flex space-x-4">
-                  <a href="https://www.linkedin.com/in/bradley-cainday-8b8b8b8b8/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="https://www.linkedin.com/in/bradley-cainday-8b8b8b8b8/" target="_blank" rel="noopener noreferrer" className={`transition-colors ${
+                    isDark ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'
+                  }`}>
                     <FaLinkedin size={20} />
                   </a>
-                  <a href="https://github.com/bradleycainday" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="https://github.com/bradleycainday" target="_blank" rel="noopener noreferrer" className={`transition-colors ${
+                    isDark ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'
+                  }`}>
                     <FaGithub size={20} />
                   </a>
                 </div>
@@ -101,8 +171,12 @@ function App() {
             </div>
           </div>
           
-          <div className="border-t border-white/10 pt-8 text-center">
-            <p className="text-white/40 text-sm">
+          <div className={`border-t pt-8 text-center transition-colors duration-300 ${
+            isDark ? 'border-white/10' : 'border-gray-200'
+          }`}>
+            <p className={`text-sm transition-colors duration-300 ${
+              isDark ? 'text-white/40' : 'text-gray-500'
+            }`}>
               © {new Date().getFullYear()} Brielle. All rights reserved.
             </p>
           </div>

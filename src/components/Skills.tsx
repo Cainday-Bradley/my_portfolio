@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { SiReact, SiAngular, SiVuedotjs, SiTypescript, SiTailwindcss, SiGit, SiJavascript, SiNodedotjs } from "react-icons/si";
 
+interface SkillsProps {
+  isDark: boolean;
+}
+
 const skills = [
   {
     name: "React",
@@ -73,7 +77,7 @@ const additionalSkills = [
   "Testing", "Figma", "Vite", "Next.js"
 ];
 
-export default function Skills() {
+export default function Skills({ isDark }: SkillsProps) {
   return (
     <section id="skills" className="py-24 relative">
       {/* Background Elements */}
@@ -90,14 +94,24 @@ export default function Skills() {
           transition={{ duration: 0.8, type: "spring" }}
           className="text-center mb-20"
         >
-          <div className="inline-flex items-center space-x-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-sm mb-6">
+          <div className={`inline-flex items-center space-x-2 border rounded-full px-4 py-2 text-sm mb-6 transition-colors duration-300 ${
+            isDark 
+              ? 'bg-white/10 border-white/20' 
+              : 'bg-gray-900/10 border-gray-300/20'
+          }`}>
             <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-            <span className="text-white/80">My Expertise</span>
+            <span className={`transition-colors duration-300 ${
+              isDark ? 'text-white/80' : 'text-gray-700'
+            }`}>My Expertise</span>
           </div>
-          <h2 className="text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h2 className={`text-5xl lg:text-6xl font-bold mb-6 transition-colors duration-300 ${
+            isDark ? 'text-white' : 'text-gray-900'
+          }`}>
             Skills & <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">Expertise</span>
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+          <p className={`text-xl max-w-3xl mx-auto leading-relaxed transition-colors duration-300 ${
+            isDark ? 'text-white/70' : 'text-gray-600'
+          }`}>
             I specialize in modern front-end technologies and frameworks, 
             creating responsive and performant web applications that deliver exceptional user experiences.
           </p>
@@ -114,7 +128,11 @@ export default function Skills() {
               transition={{ delay: index * 0.1 }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-2xl p-6 h-full hover:border-white/20 transition-all duration-300 hover:shadow-xl">
+              <div className={`backdrop-blur-sm border rounded-2xl p-6 h-full hover:border-white/20 transition-all duration-300 hover:shadow-xl ${
+                isDark 
+                  ? 'bg-black/50 border-white/10' 
+                  : 'bg-white/50 border-gray-200'
+              }`}>
                 {/* Icon with gradient background */}
                 <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${skill.color} p-4 shadow-lg group-hover:shadow-xl transition-all duration-300`}>
                   <div className="text-white text-2xl flex items-center justify-center">
@@ -124,7 +142,9 @@ export default function Skills() {
                 
                 {/* Skill info */}
                 <div className="text-center">
-                  <h3 className="font-bold text-xl mb-3 text-white group-hover:text-blue-400 transition-colors">
+                  <h3 className={`font-bold text-xl mb-3 group-hover:text-blue-400 transition-colors ${
+                    isDark ? 'text-white' : 'text-gray-900'
+                  }`}>
                     {skill.name}
                   </h3>
                   
@@ -134,11 +154,15 @@ export default function Skills() {
                     </span>
                   </div>
                   
-                  <p className="text-white/70 text-sm leading-relaxed mb-4">
+                  <p className={`text-sm leading-relaxed mb-4 transition-colors duration-300 ${
+                    isDark ? 'text-white/70' : 'text-gray-600'
+                  }`}>
                     {skill.description}
                   </p>
                   
-                  <div className="text-xs text-white/50">
+                  <div className={`text-xs transition-colors duration-300 ${
+                    isDark ? 'text-white/50' : 'text-gray-500'
+                  }`}>
                     {skill.experience} experience
                   </div>
                 </div>
@@ -152,13 +176,21 @@ export default function Skills() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="bg-gradient-to-r from-black/50 to-black/30 backdrop-blur-sm border border-white/10 rounded-3xl p-12"
+          className={`backdrop-blur-sm border rounded-3xl p-12 transition-colors duration-300 ${
+            isDark 
+              ? 'bg-gradient-to-r from-black/50 to-black/30 border-white/10' 
+              : 'bg-gradient-to-r from-white/50 to-white/30 border-gray-200'
+          }`}
         >
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-white mb-4">
+            <h3 className={`text-3xl font-bold mb-4 transition-colors duration-300 ${
+              isDark ? 'text-white' : 'text-gray-900'
+            }`}>
               Additional <span className="bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent">Skills</span>
             </h3>
-            <p className="text-white/70 max-w-2xl mx-auto">
+            <p className={`max-w-2xl mx-auto transition-colors duration-300 ${
+              isDark ? 'text-white/70' : 'text-gray-600'
+            }`}>
               Beyond my core technologies, I'm proficient in various tools and methodologies 
               that help me deliver comprehensive solutions.
             </p>
@@ -171,7 +203,11 @@ export default function Skills() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.05 }}
-                className="px-6 py-3 bg-white/10 border border-white/20 rounded-full text-sm font-medium text-white/80 hover:text-white hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105 cursor-pointer"
+                className={`px-6 py-3 border rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 cursor-pointer ${
+                  isDark 
+                    ? 'bg-white/10 border-white/20 text-white/80 hover:text-white hover:bg-white/20 hover:border-white/40' 
+                    : 'bg-gray-900/10 border-gray-300/20 text-gray-700 hover:text-gray-900 hover:bg-gray-900/20 hover:border-gray-400'
+                }`}
               >
                 {skill}
               </motion.span>
@@ -186,7 +222,9 @@ export default function Skills() {
           transition={{ delay: 1 }}
           className="mt-20 text-center"
         >
-          <h3 className="text-3xl font-bold text-white mb-12">
+          <h3 className={`text-3xl font-bold mb-12 transition-colors duration-300 ${
+            isDark ? 'text-white' : 'text-gray-900'
+          }`}>
             My <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Journey</span>
           </h3>
           
@@ -195,8 +233,12 @@ export default function Skills() {
               <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <span className="text-white font-bold text-2xl">2+</span>
               </div>
-              <h4 className="text-xl font-semibold text-white mb-2">Years Experience</h4>
-              <p className="text-white/60 text-sm">Building modern web applications</p>
+              <h4 className={`text-xl font-semibold mb-2 transition-colors duration-300 ${
+                isDark ? 'text-white' : 'text-gray-900'
+              }`}>Years Experience</h4>
+              <p className={`text-sm transition-colors duration-300 ${
+                isDark ? 'text-white/60' : 'text-gray-600'
+              }`}>Building modern web applications</p>
             </div>
             
             <div className="text-center">

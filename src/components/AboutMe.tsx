@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaArrowRight, FaDownload } from "react-icons/fa";
 
-export default function AboutMe() {
+interface AboutMeProps {
+  isDark: boolean;
+}
+
+export default function AboutMe({ isDark }: AboutMeProps) {
   return (
     <section id="about" className="min-h-screen flex items-center py-20 relative overflow-hidden">
       {/* Background Elements */}
@@ -26,10 +30,16 @@ export default function AboutMe() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center space-x-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-sm"
+              className={`inline-flex items-center space-x-2 border rounded-full px-4 py-2 text-sm transition-colors duration-300 ${
+                isDark 
+                  ? 'bg-white/10 border-white/20' 
+                  : 'bg-gray-900/10 border-gray-300/20'
+              }`}
             >
               <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-              <span className="text-white/80">Available for new opportunities</span>
+              <span className={`transition-colors duration-300 ${
+                isDark ? 'text-white/80' : 'text-gray-700'
+              }`}>Available for new opportunities</span>
             </motion.div>
 
             {/* Greeting */}
@@ -38,7 +48,9 @@ export default function AboutMe() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-5xl lg:text-7xl font-bold text-white leading-tight"
+                className={`text-5xl lg:text-7xl font-bold leading-tight transition-colors duration-300 ${
+                  isDark ? 'text-white' : 'text-gray-900'
+                }`}
               >
                 Hi, I'm{" "}
                 <span className="bg-gradient-to-r from-pink-300 to-pink-400 bg-clip-text text-transparent">
@@ -50,7 +62,9 @@ export default function AboutMe() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-3xl lg:text-4xl font-semibold text-white/90"
+                className={`text-3xl lg:text-4xl font-semibold transition-colors duration-300 ${
+                  isDark ? 'text-white/90' : 'text-gray-800'
+                }`}
               >
                 Front-End Developer
               </motion.h2>
@@ -61,7 +75,9 @@ export default function AboutMe() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-lg text-white/70 leading-relaxed max-w-lg"
+              className={`text-lg leading-relaxed max-w-lg transition-colors duration-300 ${
+                isDark ? 'text-white/70' : 'text-gray-600'
+              }`}
             >
               I'm a passionate Front-End Developer focused on creating beautiful, 
               user-friendly web experiences that make a difference.
@@ -75,12 +91,20 @@ export default function AboutMe() {
               className="flex space-x-8"
             >
               <div className="text-center">
-                <div className="text-2xl font-bold text-white">2+</div>
-                <div className="text-sm text-white/60">Years Experience</div>
+                <div className={`text-2xl font-bold transition-colors duration-300 ${
+                  isDark ? 'text-white' : 'text-gray-900'
+                }`}>2+</div>
+                <div className={`text-sm transition-colors duration-300 ${
+                  isDark ? 'text-white/60' : 'text-gray-600'
+                }`}>Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-white">4</div>
-                <div className="text-sm text-white/60">Projects Completed</div>
+                <div className={`text-2xl font-bold transition-colors duration-300 ${
+                  isDark ? 'text-white' : 'text-gray-900'
+                }`}>4</div>
+                <div className={`text-sm transition-colors duration-300 ${
+                  isDark ? 'text-white/60' : 'text-gray-600'
+                }`}>Projects Completed</div>
               </div>
             </motion.div>
 
@@ -114,10 +138,14 @@ export default function AboutMe() {
               transition={{ delay: 0.8 }}
               className="flex items-center space-x-6 pt-8"
             >
-              <a href="https://github.com/Cainday-Bradley" className="social-link" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/Cainday-Bradley" className={`social-link transition-colors duration-300 ${
+                isDark ? 'text-white/60 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+              }`} target="_blank" rel="noopener noreferrer">
                 <FaGithub className="w-5 h-5" />
               </a>
-              <a href="https://www.linkedin.com/in/bradley-cainday-a76382349/" className="social-link" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/bradley-cainday-a76382349/" className={`social-link transition-colors duration-300 ${
+                isDark ? 'text-white/60 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+              }`} target="_blank" rel="noopener noreferrer">
                 <FaLinkedin className="w-5 h-5" />
               </a>
             </motion.div>
@@ -138,7 +166,9 @@ export default function AboutMe() {
                 <img
                   src="/src/assets/profile.jpg"
                   alt="Brielle"
-                  className="relative w-full h-full object-cover rounded-3xl shadow-2xl border border-white/10"
+                  className={`relative w-full h-full object-cover rounded-3xl shadow-2xl border transition-colors duration-300 ${
+                    isDark ? 'border-white/10' : 'border-gray-200'
+                  }`}
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = "none";
                   }}
@@ -151,13 +181,21 @@ export default function AboutMe() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="absolute -bottom-8 -left-8 bg-black/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 max-w-xs shadow-2xl"
+              className={`absolute -bottom-8 -left-8 backdrop-blur-md border rounded-2xl p-6 max-w-xs shadow-2xl transition-colors duration-300 ${
+                isDark 
+                  ? 'bg-black/80 border-white/10' 
+                  : 'bg-white/80 border-gray-200'
+              }`}
             >
               <div className="text-xs text-red-500 font-semibold mb-2 uppercase tracking-wider">Expert on</div>
-              <p className="text-white/80 text-sm leading-relaxed">
+              <p className={`text-sm leading-relaxed transition-colors duration-300 ${
+                isDark ? 'text-white/80' : 'text-gray-700'
+              }`}>
                 Modern web technologies and creating exceptional user experiences.
               </p>
-              <p className="text-white/70 text-sm mt-3">
+              <p className={`text-sm mt-3 transition-colors duration-300 ${
+                isDark ? 'text-white/70' : 'text-gray-600'
+              }`}>
                 Let's collaborate to bring your ideas to life with cutting-edge design and development.
               </p>
             </motion.div>
@@ -178,9 +216,15 @@ export default function AboutMe() {
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <div className="flex flex-col items-center space-y-2">
-          <span className="text-white/40 text-sm">Scroll to explore</span>
-          <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/40 rounded-full mt-2 animate-bounce"></div>
+          <span className={`text-sm transition-colors duration-300 ${
+            isDark ? 'text-white/40' : 'text-gray-500'
+          }`}>Scroll to explore</span>
+          <div className={`w-6 h-10 border-2 rounded-full flex justify-center transition-colors duration-300 ${
+            isDark ? 'border-white/20' : 'border-gray-300'
+          }`}>
+            <div className={`w-1 h-3 rounded-full mt-2 animate-bounce transition-colors duration-300 ${
+              isDark ? 'bg-white/40' : 'bg-gray-500'
+            }`}></div>
           </div>
         </div>
       </motion.div>

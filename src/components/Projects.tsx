@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt, FaGithub, FaAngular } from "react-icons/fa";
 
+interface ProjectsProps {
+  isDark: boolean;
+}
+
 const UnityIcon = (
   <svg viewBox="0 0 32 32" width="1.5em" height="1.5em" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g>
@@ -47,7 +51,7 @@ const projects = [
   },
 ];
 
-export default function Projects() {
+export default function Projects({ isDark }: ProjectsProps) {
   return (
     <section id="projects" className="py-24 relative">
       {/* Background Elements */}
@@ -64,14 +68,24 @@ export default function Projects() {
           transition={{ duration: 0.8, type: "spring" }}
           className="text-center mb-20"
         >
-          <div className="inline-flex items-center space-x-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-sm mb-6">
+          <div className={`inline-flex items-center space-x-2 border rounded-full px-4 py-2 text-sm mb-6 transition-colors duration-300 ${
+            isDark 
+              ? 'bg-white/10 border-white/20' 
+              : 'bg-gray-900/10 border-gray-300/20'
+          }`}>
             <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
-            <span className="text-white/80">My Work</span>
+            <span className={`transition-colors duration-300 ${
+              isDark ? 'text-white/80' : 'text-gray-700'
+            }`}>My Work</span>
           </div>
-          <h2 className="text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h2 className={`text-5xl lg:text-6xl font-bold mb-6 transition-colors duration-300 ${
+            isDark ? 'text-white' : 'text-gray-900'
+          }`}>
             Featured <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Projects</span>
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+          <p className={`text-xl max-w-3xl mx-auto leading-relaxed transition-colors duration-300 ${
+            isDark ? 'text-white/70' : 'text-gray-600'
+          }`}>
             Here are some of my recent projects that showcase my skills and passion for creating exceptional user experiences.
           </p>
         </motion.div>
@@ -87,11 +101,21 @@ export default function Projects() {
               transition={{ delay: index * 0.1 }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-300 hover:shadow-2xl h-full">
+              <div className={`backdrop-blur-sm border rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-2xl h-full ${
+                isDark 
+                  ? 'bg-black/50 border-white/10 hover:border-white/20' 
+                  : 'bg-white/50 border-gray-200 hover:border-gray-300'
+              }`}>
                 {/* Project Image */}
                 <div className="relative h-48 overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                    <div className="text-white/20 text-6xl font-bold">{project.name.charAt(0)}</div>
+                  <div className={`w-full h-full flex items-center justify-center ${
+                    isDark 
+                      ? 'bg-gradient-to-br from-gray-800 to-gray-900' 
+                      : 'bg-gradient-to-br from-gray-200 to-gray-300'
+                  }`}>
+                    <div className={`text-6xl font-bold ${
+                      isDark ? 'text-white/20' : 'text-gray-400'
+                    }`}>{project.name.charAt(0)}</div>
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-6">
                     <div className="flex items-center space-x-2">
@@ -122,7 +146,9 @@ export default function Projects() {
                 {/* Project Info */}
                 <div className="p-8 space-y-6">
                   <div>
-                    <h3 className="font-bold text-2xl mb-3 text-white group-hover:text-purple-400 transition-colors">
+                    <h3 className={`font-bold text-2xl mb-3 group-hover:text-purple-400 transition-colors ${
+                      isDark ? 'text-white' : 'text-gray-900'
+                    }`}>
                       {project.name}
                     </h3>
                     <span className="inline-block px-4 py-2 text-sm rounded-full bg-purple-500/20 text-purple-400 font-medium border border-purple-500/30">
@@ -130,18 +156,26 @@ export default function Projects() {
                     </span>
                   </div>
                   
-                  <p className="text-white/70 text-sm leading-relaxed">
+                  <p className={`text-sm leading-relaxed transition-colors duration-300 ${
+                    isDark ? 'text-white/70' : 'text-gray-600'
+                  }`}>
                     {project.description}
                   </p>
 
                   {/* Technologies */}
                   <div className="space-y-3">
-                    <h4 className="text-white/80 font-semibold text-sm">Technologies Used:</h4>
+                    <h4 className={`font-semibold text-sm transition-colors duration-300 ${
+                      isDark ? 'text-white/80' : 'text-gray-700'
+                    }`}>Technologies Used:</h4>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-medium text-white/80 hover:text-white hover:bg-white/20 transition-all"
+                          className={`px-3 py-1 border rounded-full text-xs font-medium transition-all ${
+                            isDark 
+                              ? 'bg-white/10 border-white/20 text-white/80 hover:text-white hover:bg-white/20' 
+                              : 'bg-gray-900/10 border-gray-300/20 text-gray-700 hover:text-gray-900 hover:bg-gray-900/20'
+                          }`}
                         >
                           {tech}
                         </span>
@@ -150,7 +184,9 @@ export default function Projects() {
                   </div>
 
                   {/* Project Links */}
-                  <div className="flex space-x-4 pt-4 border-t border-white/10">
+                  <div className={`flex space-x-4 pt-4 border-t transition-colors duration-300 ${
+                    isDark ? 'border-white/10' : 'border-gray-200'
+                  }`}>
                     <a
                       href={project.url}
                       target="_blank"
@@ -164,7 +200,9 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white/60 hover:text-white text-sm font-medium flex items-center space-x-2 transition-colors group/link"
+                      className={`text-sm font-medium flex items-center space-x-2 transition-colors group/link ${
+                        isDark ? 'text-white/60 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                      }`}
                     >
                       <span>View Code</span>
                       <FaGithub className="w-3 h-3 group-hover/link:scale-110 transition-transform" />
