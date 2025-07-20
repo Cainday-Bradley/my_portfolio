@@ -1,50 +1,221 @@
 import { motion } from "framer-motion";
-import { FaUserAstronaut } from "react-icons/fa";
+import { FaUserAstronaut, FaGithub, FaLinkedin, FaArrowRight, FaDownload, FaDribbble } from "react-icons/fa";
 
 export default function AboutMe() {
   return (
-    <motion.section
-      className="relative bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-12 shadow-xl mb-12 flex flex-col md:flex-row items-center gap-8 overflow-hidden"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7, type: "spring" }}
-    >
-      <div className="flex-shrink-0">
-        {/* Avatar or placeholder */}
-        <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-tr from-indigo-400 to-pink-300 flex items-center justify-center shadow-lg border-4 border-indigo-100 dark:border-slate-800">
-          {/* Use your own image by replacing the icon below */}
-          <img
-            src="/profile.jpg"
-            alt="Brielle"
-            className="w-full h-full object-cover rounded-full"
-            onError={(e) => {
-              (e.target as HTMLImageElement).style.display = "none";
-            }}
-          />
-          <FaUserAstronaut className="w-16 h-16 text-white/80 absolute" />
+    <section id="about" className="min-h-screen flex items-center py-20 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-red-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-red-500/5 to-blue-500/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left Content - Introduction */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, type: "spring" }}
+            className="space-y-8"
+          >
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center space-x-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-sm"
+            >
+              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+              <span className="text-white/80">Available for new opportunities</span>
+            </motion.div>
+
+            {/* Greeting */}
+            <div className="space-y-6">
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="text-5xl lg:text-7xl font-bold text-white leading-tight"
+              >
+                Hi, I'm{" "}
+                <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">
+                  Brielle
+                </span>
+              </motion.h1>
+              
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="text-3xl lg:text-4xl font-semibold text-white/90"
+              >
+                Front-End Developer
+              </motion.h2>
+            </div>
+
+            {/* Description */}
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="text-lg text-white/70 leading-relaxed max-w-lg"
+            >
+              Based in the Philippines, I'm a passionate developer and UI/UX designer focused on creating beautiful, 
+              user-friendly web experiences that make a difference.
+            </motion.p>
+
+            {/* Stats */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="flex space-x-8"
+            >
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white">3+</div>
+                <div className="text-sm text-white/60">Years Experience</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white">20+</div>
+                <div className="text-sm text-white/60">Projects Completed</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white">15+</div>
+                <div className="text-sm text-white/60">Happy Clients</div>
+              </div>
+            </motion.div>
+
+            {/* Call to Action */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <button className="btn-primary flex items-center space-x-2 group">
+                <span>Hire Me</span>
+                <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button className="btn-secondary flex items-center space-x-2 group">
+                <FaDownload className="w-4 h-4" />
+                <span>Download CV</span>
+              </button>
+            </motion.div>
+
+            {/* Social Links */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="flex items-center space-x-6 pt-8"
+            >
+              <a href="#" className="social-link">
+                <FaGithub className="w-5 h-5" />
+              </a>
+              <a href="#" className="social-link">
+                <FaLinkedin className="w-5 h-5" />
+              </a>
+              <a href="#" className="social-link">
+                <FaDribbble className="w-5 h-5" />
+              </a>
+              <div className="flex items-center space-x-2 text-pink-400">
+                <span className="text-xl">●</span>
+                <a href="https://www.dribbble.com/brielle" className="text-sm hover:text-pink-300 transition-colors underline">
+                  www.dribbble.com/brielle
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Content - Profile Image and Info */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
+            className="relative"
+          >
+            {/* Profile Image */}
+            <div className="relative">
+              <div className="w-80 h-96 lg:w-96 lg:h-[500px] mx-auto relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-blue-500/20 rounded-3xl blur-xl"></div>
+                <img
+                  src="/profile.jpg"
+                  alt="Brielle"
+                  className="relative w-full h-full object-cover rounded-3xl shadow-2xl border border-white/10"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = "none";
+                  }}
+                />
+                {/* Placeholder if no image */}
+                <div className="relative w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl flex items-center justify-center border border-white/10">
+                  <FaUserAstronaut className="w-32 h-32 text-white/20" />
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Info Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="absolute -bottom-8 -left-8 bg-black/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 max-w-xs shadow-2xl"
+            >
+              <div className="text-xs text-red-500 font-semibold mb-2 uppercase tracking-wider">Expert on</div>
+              <p className="text-white/80 text-sm leading-relaxed">
+                Modern web technologies and creating exceptional user experiences.
+              </p>
+              <p className="text-white/70 text-sm mt-3">
+                Let's collaborate to bring your ideas to life with cutting-edge design and development.
+              </p>
+            </motion.div>
+
+            {/* Decorative Elements */}
+            <div className="absolute -top-8 -right-8 w-16 h-16 border-2 border-blue-400/30 rounded-full animate-pulse"></div>
+            <div className="absolute -top-4 -right-4 w-8 h-8 border-2 border-orange-400/30 rounded-full animate-pulse delay-1000"></div>
+            <div className="absolute top-1/2 -right-12 w-12 h-12 bg-blue-400/20 rounded-full animate-pulse delay-500"></div>
+          </motion.div>
         </div>
       </div>
-      <div className="flex-1 text-center md:text-left">
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-2">
-          <span className="text-indigo-500">Brielle</span>
-        </h1>
-        <h2 className="text-xl md:text-2xl font-semibold text-pink-400 mb-4">
-          Aspiring Front-End Developer
-        </h2>
-        <p className="text-gray-700 dark:text-gray-200 text-lg mb-2">
-          Passionate about building beautiful, user-friendly web experiences.
-          <span className="block text-indigo-500 font-semibold">
-            Core skills: React, Angular, Vue
-          </span>
-        </p>
-        <p className="text-gray-500 dark:text-gray-400">
-          Adaptable to back-end tech when needed. <br />
-          <span className="italic text-pink-400">I love playing games in my free time.</span>
-        </p>
-      </div>
-      {/* Decorative gradient blob */}
-      <div className="absolute -top-10 -right-10 w-40 h-40 bg-pink-200 dark:bg-indigo-900 rounded-full blur-3xl opacity-40 pointer-events-none" />
-    </motion.section>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+      >
+        <div className="flex flex-col items-center space-y-2">
+          <span className="text-white/40 text-sm">Scroll to explore</span>
+          <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/40 rounded-full mt-2 animate-bounce"></div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Chat Button */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 1.2 }}
+        className="fixed bottom-8 right-8 z-40"
+      >
+        <button className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-4 rounded-full shadow-lg transition-all hover:scale-110 hover:shadow-green-500/25">
+          <div className="w-6 h-6 flex items-center justify-center">
+            <div className="flex space-x-1">
+              <div className="w-1 h-1 bg-white rounded-full animate-bounce"></div>
+              <div className="w-1 h-1 bg-white rounded-full animate-bounce delay-100"></div>
+              <div className="w-1 h-1 bg-white rounded-full animate-bounce delay-200"></div>
+            </div>
+          </div>
+        </button>
+        <div className="absolute -top-12 right-0 bg-white text-black px-3 py-2 rounded-lg text-sm font-medium shadow-lg">
+          Let's Chat
+        </div>
+      </motion.div>
+    </section>
   );
 } 
