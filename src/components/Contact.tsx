@@ -171,7 +171,27 @@ export default function Contact({ isDark }: ContactProps) {
               action="https://formspree.io/f/mwkgyqzv" 
               method="POST" 
               onSubmit={e => {
-                setTimeout(() => setSubmitted(true), 500);
+                e.preventDefault();
+                const form = e.target as HTMLFormElement;
+                const data = new FormData(form);
+                fetch('https://formspree.io/f/mwkgyqzv', {
+                  method: 'POST',
+                  body: data,
+                  headers: {
+                    'Accept': 'application/json',
+                  },
+                })
+                  .then(response => {
+                    if (response.ok) {
+                      setSubmitted(true);
+                      form.reset();
+                    } else {
+                      alert('There was an error sending your message. Please try again later.');
+                    }
+                  })
+                  .catch(() => {
+                    alert('There was an error sending your message. Please try again later.');
+                  });
               }}
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

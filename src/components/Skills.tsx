@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { SiReact, SiAngular, SiVuedotjs, SiTypescript, SiTailwindcss, SiGit, SiJavascript, SiNodedotjs } from "react-icons/si";
+import React from "react"; // Added missing import for React
 
 interface SkillsProps {
   isDark: boolean;
@@ -135,8 +136,12 @@ export default function Skills({ isDark }: SkillsProps) {
               }`}>
                 {/* Icon with gradient background */}
                 <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${skill.color} p-4 shadow-lg group-hover:shadow-xl transition-all duration-300`}>
-                  <div className="text-white text-2xl flex items-center justify-center">
-                    {skill.icon}
+                  <div className="flex items-center justify-center">
+                    {/* Add a white drop shadow and increase icon size for visibility */}
+                    {React.cloneElement(skill.icon, {
+                      className: `${skill.icon.props.className} text-3xl drop-shadow-[0_2px_8px_rgba(255,255,255,0.7)]`,
+                      style: { filter: 'drop-shadow(0 2px 8px rgba(255,255,255,0.7))' }
+                    })}
                   </div>
                 </div>
                 
