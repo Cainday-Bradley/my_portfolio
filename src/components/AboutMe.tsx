@@ -115,10 +115,10 @@ export default function AboutMe({ isDark }: AboutMeProps) {
               transition={{ delay: 0.7 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <button className="btn-primary flex items-center space-x-2 group">
+              <span className="flex items-center space-x-2 text-base font-semibold text-red-500 select-none">
                 <span>Hire Me</span>
-                <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+                <FaArrowRight className="w-4 h-4" />
+              </span>
               <a
                 href="/src/assets/Bradley Cainday - Resume.pdf"
                 download
