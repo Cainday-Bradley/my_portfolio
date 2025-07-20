@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt, FaGithub, FaAngular } from "react-icons/fa";
+import isyncImg from '../assets/isync.jpg';
+import orgbeeImg from '../assets/orgbee.jpg';
+import quotlabImg from '../assets/quotlab.jpg';
+import wolfieImg from '../assets/wolfie.jpg';
 
 interface ProjectsProps {
   isDark: boolean;
@@ -22,7 +26,7 @@ const projects = [
     role: "Front-End Developer",
     description:
       "A web application for DOST using Angular and Laravel that enables clients to request quotations from various laboratories and automatically generate professional PDF documents delivering a seamless and user-friendly experience.",
-    image: "/quote-lab.jpg",
+    image: quotlabImg,
     github: "#",
     technologies: ["Angular", "Laravel", "PHP", "MySQL"],
     icon: <FaAngular className="text-red-500" />,
@@ -33,7 +37,7 @@ const projects = [
     role: "Front-End Developer",
     description:
       "A website for DOST-NML, built using Angular and Laravel and integrated into the QuotLab system. The platform streamlines the report generation process from quotations, featuring a dedicated checker role to ensure the accuracy of calibrated data before finalizing reports. Once verified, the system automatically generates certifications, enhancing efficiency and accuracy in calibration reporting.",
-    image: "/isync.jpg",
+    image: isyncImg,
     github: "#",
     technologies: ["Angular", "Laravel", "PHP", "MySQL"],
     icon: <FaAngular className="text-red-500" />,
@@ -44,10 +48,21 @@ const projects = [
     role: "Game Graphic Artist",
     description:
       "The game was developed in Unity 3D, combining engaging gameplay with charming retro-style visuals to enhance the overall player experience.",
-    image: "/wolfie-match.jpg",
+    image: wolfieImg,
     github: "#",
     technologies: ["Unity 3D", "Aseprite"],
     icon: UnityIcon,
+  },
+  {
+    name: "Orgbee",
+    url: "#",
+    role: "Front-End Developer",
+    description:
+      "An organization website that provides a centralized hub for streamlined management. Students can register effortlessly, engage on a freedom wall, and organization officers can post events and announcements easily.",
+    image: orgbeeImg,
+    github: "#",
+    technologies: ["Angular", "PHP", "MySQL"],
+    icon: <FaAngular className="text-red-500" />,
   },
 ];
 
@@ -108,14 +123,13 @@ export default function Projects({ isDark }: ProjectsProps) {
               }`}>
                 {/* Project Image */}
                 <div className="relative h-48 overflow-hidden">
-                  <div className={`w-full h-full flex items-center justify-center ${
-                    isDark 
-                      ? 'bg-gradient-to-br from-gray-800 to-gray-900' 
-                      : 'bg-gradient-to-br from-gray-200 to-gray-300'
-                  }`}>
-                    <div className={`text-6xl font-bold ${
-                      isDark ? 'text-white/20' : 'text-gray-400'
-                    }`}>{project.name.charAt(0)}</div>
+                  <div className="w-full h-full flex items-center justify-center relative">
+                    <img
+                      src={project.image}
+                      alt={project.name}
+                      className="absolute inset-0 w-full h-full object-cover z-0"
+                      style={{ filter: 'brightness(0.7)' }}
+                    />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-6">
                     <div className="flex items-center space-x-2">

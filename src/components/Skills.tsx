@@ -10,10 +10,10 @@ const skills = [
   {
     name: "React",
     icon: <SiReact className="text-cyan-500" />,
-    level: "Advanced",
+    level: "Beginner",
     description: "Building modern UIs with hooks and context",
     color: "from-cyan-400 to-blue-500",
-    experience: "1 year"
+    experience: "3 months"
   },
   {
     name: "TypeScript",
@@ -26,10 +26,10 @@ const skills = [
   {
     name: "Tailwind CSS",
     icon: <SiTailwindcss className="text-teal-500" />,
-    level: "Advanced",
+    level: "Beginner",
     description: "Utility-first CSS framework",
     color: "from-teal-400 to-cyan-500",
-    experience: "1 year"
+    experience: "3 months"
   },
   {
     name: "JavaScript",
@@ -50,23 +50,23 @@ const skills = [
   {
     name: "Vue.js",
     icon: <SiVuedotjs className="text-green-500" />,
-    level: "Intermediate",
+    level: "Beginner",
     description: "Progressive framework development",
     color: "from-green-400 to-emerald-500",
-    experience: "1 year"
+    experience: "3 months"
   },
   {
     name: "Node.js",
     icon: <SiNodedotjs className="text-green-600" />,
-    level: "Intermediate",
+    level: "Beginner",
     description: "Server-side JavaScript development",
     color: "from-green-500 to-emerald-600",
-    experience: "1 year"
+    experience: "3 months"
   },
   {
     name: "Git",
     icon: <SiGit className="text-orange-500" />,
-    level: "Advanced",
+    level: "Intermediate",
     description: "Version control and collaboration",
     color: "from-orange-400 to-red-500",
     experience: "2 years"

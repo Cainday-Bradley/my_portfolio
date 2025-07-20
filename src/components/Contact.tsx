@@ -8,6 +8,8 @@ interface ContactProps {
 
 export default function Contact({ isDark }: ContactProps) {
   const [submitted, setSubmitted] = useState(false);
+  const LINKEDIN_URL = "https://www.linkedin.com/in/bradley-cainday-a76382349/";
+  const GITHUB_URL = "https://github.com/Cainday-Bradley";
 
   return (
     <section id="contact" className="py-24 relative">
@@ -134,12 +136,12 @@ export default function Contact({ isDark }: ContactProps) {
                 isDark ? 'text-white' : 'text-gray-900'
               }`}>Follow Me</h4>
               <div className="flex space-x-4">
-                <a href="https://www.linkedin.com/in/bradley-cainday-a76382349/" className={`social-link transition-colors duration-300 ${
+                <a href={LINKEDIN_URL} className={`social-link transition-colors duration-300 ${
                   isDark ? 'text-white/60 hover:text-white' : 'text-gray-600 hover:text-gray-900'
                 }`} target="_blank" rel="noopener noreferrer">
                   <FaLinkedin className="w-6 h-6" />
                 </a>
-                <a href="https://github.com/Cainday-Bradley" className={`social-link transition-colors duration-300 ${
+                <a href={GITHUB_URL} className={`social-link transition-colors duration-300 ${
                   isDark ? 'text-white/60 hover:text-white' : 'text-gray-600 hover:text-gray-900'
                 }`} target="_blank" rel="noopener noreferrer">
                   <FaGithub className="w-6 h-6" />
@@ -316,7 +318,7 @@ export default function Contact({ isDark }: ContactProps) {
             }`}>100%</div>
             <div className={`transition-colors duration-300 ${
               isDark ? 'text-white/70' : 'text-gray-600'
-            }`}>Client Satisfaction</div>
+            }`}>Project Completion Rate</div>
           </div>
           <div className={`text-center p-6 border rounded-2xl transition-colors duration-300 ${
             isDark 

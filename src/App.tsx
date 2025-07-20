@@ -5,6 +5,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import ThemeToggle from "./components/ThemeToggle";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -18,6 +19,10 @@ function App() {
       document.documentElement.classList.remove('dark');
     }
   }, [isDark]);
+
+  // Correct URLs
+  const LINKEDIN_URL = "https://www.linkedin.com/in/bradley-cainday-a76382349/";
+  const GITHUB_URL = "https://github.com/Cainday-Bradley";
 
   return (
     <div className={`min-h-screen font-sans transition-colors duration-300 ${
@@ -44,9 +49,39 @@ function App() {
                 }`}>Front-End Developer</div>
               </div>
             </div>
-            <span className={`text-sm hidden lg:block border-l pl-4 transition-colors duration-300 ${
-              isDark ? 'text-white/70 border-white/20' : 'text-gray-600 border-gray-300'
-            }`}>bradleycainday@gmail.com</span>
+            <div className="hidden lg:flex items-center space-x-3 border-l pl-4 transition-colors duration-300" style={{ borderColor: isDark ? 'rgba(255,255,255,0.2)' : '#d1d5db' }}>
+              <a
+                href="mailto:bradleycainday@gmail.com"
+                className={`p-2 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pink-400 ${
+                  isDark ? 'text-red-400 hover:text-white' : 'text-red-600 hover:text-pink-500'
+                }`}
+                title="Email Brielle"
+              >
+                <SiGmail size={22} />
+              </a>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`p-2 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+                  isDark ? 'text-blue-400 hover:text-white' : 'text-blue-700 hover:text-blue-900'
+                }`}
+                title="LinkedIn"
+              >
+                <FaLinkedin size={20} />
+              </a>
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`p-2 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 ${
+                  isDark ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
+                }`}
+                title="GitHub"
+              >
+                <FaGithub size={20} />
+              </a>
+            </div>
           </div>
           
           <div className="flex items-center space-x-6">
@@ -156,12 +191,12 @@ function App() {
                   isDark ? 'text-white/60' : 'text-gray-600'
                 }`}>Taguig City, Philippines</p>
                 <div className="flex space-x-4">
-                  <a href="https://www.linkedin.com/in/bradley-cainday-8b8b8b8b8/" target="_blank" rel="noopener noreferrer" className={`transition-colors ${
+                  <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className={`transition-colors ${
                     isDark ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'
                   }`}>
                     <FaLinkedin size={20} />
                   </a>
-                  <a href="https://github.com/bradleycainday" target="_blank" rel="noopener noreferrer" className={`transition-colors ${
+                  <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className={`transition-colors ${
                     isDark ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'
                   }`}>
                     <FaGithub size={20} />

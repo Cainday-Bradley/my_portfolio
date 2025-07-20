@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaArrowRight, FaDownload } from "react-icons/fa";
+import { FaArrowRight, FaDownload } from "react-icons/fa";
 
 interface AboutMeProps {
   isDark: boolean;
@@ -131,24 +131,6 @@ export default function AboutMe({ isDark }: AboutMeProps) {
               </a>
             </motion.div>
 
-            {/* Social Links */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="flex items-center space-x-6 pt-8"
-            >
-              <a href="https://github.com/Cainday-Bradley" className={`social-link transition-colors duration-300 ${
-                isDark ? 'text-white/60 hover:text-white' : 'text-gray-600 hover:text-gray-900'
-              }`} target="_blank" rel="noopener noreferrer">
-                <FaGithub className="w-5 h-5" />
-              </a>
-              <a href="https://www.linkedin.com/in/bradley-cainday-a76382349/" className={`social-link transition-colors duration-300 ${
-                isDark ? 'text-white/60 hover:text-white' : 'text-gray-600 hover:text-gray-900'
-              }`} target="_blank" rel="noopener noreferrer">
-                <FaLinkedin className="w-5 h-5" />
-              </a>
-            </motion.div>
           </motion.div>
 
           {/* Right Content - Profile Image and Info */}
@@ -181,7 +163,7 @@ export default function AboutMe({ isDark }: AboutMeProps) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className={`absolute -bottom-8 -left-8 backdrop-blur-md border rounded-2xl p-6 max-w-xs shadow-2xl transition-colors duration-300 ${
+              className={`absolute -bottom-0 -left-8 backdrop-blur-md border rounded-2xl p-6 max-w-xs shadow-2xl transition-colors duration-300 ${
                 isDark 
                   ? 'bg-black/80 border-white/10' 
                   : 'bg-white/80 border-gray-200'
@@ -213,7 +195,7 @@ export default function AboutMe({ isDark }: AboutMeProps) {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-30 pointer-events-none"
       >
         <div className="flex flex-col items-center space-y-2">
           <span className={`text-sm transition-colors duration-300 ${
