@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FaArrowRight, FaDownload } from "react-icons/fa";
+import profileImg from "../assets/profile.jpg";
 
 interface AboutMeProps {
   isDark: boolean;
@@ -147,7 +148,7 @@ export default function AboutMe({ isDark }: AboutMeProps) {
               <div className="w-80 h-96 lg:w-96 lg:h-[500px] mx-auto relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-blue-500/20 rounded-3xl blur-xl"></div>
                 <img
-                  src="/src/assets/profile.jpg"
+                  src={profileImg}
                   alt="Brielle"
                   className={`relative w-full h-full object-cover rounded-3xl shadow-2xl border transition-colors duration-300 ${
                     isDark ? 'border-white/10' : 'border-gray-200'

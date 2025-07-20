@@ -7,6 +7,7 @@ import ThemeToggle from "./components/ThemeToggle";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import { useState, useEffect, useRef } from "react";
+import idImg from "./assets/id.jpg";
 
 function App() {
   const [isDark, setIsDark] = useState(true);
@@ -61,7 +62,7 @@ function App() {
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center overflow-hidden">
-                <img src="/src/assets/id.jpg" alt="Bradley Cainday" className="w-full h-full object-cover" loading="lazy" />
+                <img src={idImg} alt="Bradley Cainday" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="hidden sm:block">
                 <span className="text-xl font-bold bg-gradient-to-r from-pink-300 to-pink-400 bg-clip-text text-transparent">Brielle</span>
@@ -193,7 +194,7 @@ function App() {
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center overflow-hidden">
-                  <img src="/src/assets/id.jpg" alt="Bradley Cainday" className="w-full h-full object-cover" loading="lazy" />
+                  <img src={idImg} alt="Bradley Cainday" className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <span className={`text-lg font-bold transition-colors duration-300 ${
                   isDark ? 'text-white' : 'text-gray-900'
