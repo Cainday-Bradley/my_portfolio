@@ -6,10 +6,12 @@ import Contact from "./components/Contact";
 import ThemeToggle from "./components/ThemeToggle";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function App() {
   const [isDark, setIsDark] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Apply theme to document body
@@ -19,6 +21,25 @@ function App() {
       document.documentElement.classList.remove('dark');
     }
   }, [isDark]);
+
+  // Close mobile menu on ESC or click outside
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    }
+    function handleClick(e: MouseEvent) {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target as Node)) {
+        setMobileMenuOpen(false);
+      }
+    }
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('mousedown', handleClick);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('mousedown', handleClick);
+    };
+  }, [mobileMenuOpen]);
 
   // Correct URLs
   const LINKEDIN_URL = "https://www.linkedin.com/in/bradley-cainday-a76382349/";
@@ -40,7 +61,7 @@ function App() {
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center overflow-hidden">
-                <img src="/src/assets/id.jpg" alt="Bradley Cainday" className="w-full h-full object-cover" />
+                <img src="/src/assets/id.jpg" alt="Bradley Cainday" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="hidden sm:block">
                 <span className="text-xl font-bold bg-gradient-to-r from-pink-300 to-pink-400 bg-clip-text text-transparent">Brielle</span>
@@ -100,7 +121,7 @@ function App() {
               }`}>Contact</a>
             </nav>
             <ThemeToggle isDark={isDark} setIsDark={setIsDark} />
-            <button className="md:hidden p-2">
+            <button className="md:hidden p-2" aria-label="Open menu" onClick={() => setMobileMenuOpen(true)}>
               <div className="w-6 h-6 flex flex-col justify-center space-y-1">
                 <div className={`w-full h-0.5 transition-colors duration-300 ${
                   isDark ? 'bg-white' : 'bg-gray-900'
@@ -115,6 +136,32 @@ function App() {
             </button>
           </div>
         </div>
+        {/* Mobile Menu Overlay */}
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 z-50 bg-black/70 flex items-start justify-end md:hidden transition-opacity" aria-modal="true" role="dialog">
+            <div ref={mobileMenuRef} className={`w-4/5 max-w-xs h-full bg-white dark:bg-gray-900 shadow-xl p-8 flex flex-col space-y-8 animate-slideInRight`}>
+              <button
+                className="self-end mb-4 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-400"
+                aria-label="Close menu"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="block w-6 h-0.5 bg-gray-900 dark:bg-white rotate-45 translate-y-1.5"></span>
+                <span className="block w-6 h-0.5 bg-gray-900 dark:bg-white -rotate-45 -translate-y-1.5 -mt-0.5"></span>
+              </button>
+              <nav className="flex flex-col space-y-6">
+                <a href="#about" className="text-lg font-medium text-gray-900 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors" onClick={() => setMobileMenuOpen(false)}>About</a>
+                <a href="#skills" className="text-lg font-medium text-gray-900 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors" onClick={() => setMobileMenuOpen(false)}>Skills</a>
+                <a href="#projects" className="text-lg font-medium text-gray-900 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors" onClick={() => setMobileMenuOpen(false)}>Projects</a>
+                <a href="#contact" className="text-lg font-medium text-gray-900 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+              </nav>
+              <div className="flex space-x-4 mt-auto">
+                <a href="mailto:bradleycainday@gmail.com" className="p-2 rounded-full text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900 transition-colors" title="Email Brielle"><SiGmail size={22} /></a>
+                <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors" title="LinkedIn"><FaLinkedin size={20} /></a>
+                <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors" title="GitHub"><FaGithub size={20} /></a>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Main Content */}
@@ -146,7 +193,7 @@ function App() {
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center overflow-hidden">
-                  <img src="/src/assets/id.jpg" alt="Bradley Cainday" className="w-full h-full object-cover" />
+                  <img src="/src/assets/id.jpg" alt="Bradley Cainday" className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <span className={`text-lg font-bold transition-colors duration-300 ${
                   isDark ? 'text-white' : 'text-gray-900'

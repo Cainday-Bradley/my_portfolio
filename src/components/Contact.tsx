@@ -8,8 +8,49 @@ interface ContactProps {
 
 export default function Contact({ isDark }: ContactProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const LINKEDIN_URL = "https://www.linkedin.com/in/bradley-cainday-a76382349/";
   const GITHUB_URL = "https://github.com/Cainday-Bradley";
+
+  function validate() {
+    const newErrors: { [key: string]: string } = {};
+    if (!form.name.trim()) newErrors.name = 'Name is required.';
+    if (!form.email.trim()) newErrors.email = 'Email is required.';
+    else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) newErrors.email = 'Enter a valid email address.';
+    if (!form.subject.trim()) newErrors.subject = 'Subject is required.';
+    if (!form.message.trim()) newErrors.message = 'Message is required.';
+    return newErrors;
+  }
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const validationErrors = validate();
+    setErrors(validationErrors);
+    if (Object.keys(validationErrors).length > 0) return;
+    setLoading(true);
+    const data = new FormData();
+    Object.entries(form).forEach(([k, v]) => data.append(k, v));
+    try {
+      const response = await fetch('https://formspree.io/f/mwkgyqzv', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' },
+      });
+      if (response.ok) {
+        setSubmitted(true);
+        setForm({ name: '', email: '', subject: '', message: '' });
+        setErrors({});
+      } else {
+        setErrors({ form: 'There was an error sending your message. Please try again later.' });
+      }
+    } catch {
+      setErrors({ form: 'There was an error sending your message. Please try again later.' });
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <section id="contact" className="py-24 relative">
@@ -168,34 +209,7 @@ export default function Contact({ isDark }: ContactProps) {
             {submitted ? (
               <div className={`text-center py-12 text-lg font-semibold transition-colors duration-300 ${isDark ? 'text-green-400' : 'text-green-700'}`}>Thank you! Your message has been sent.</div>
             ) : (
-            <form 
-              className="space-y-6" 
-              action="https://formspree.io/f/mwkgyqzv" 
-              method="POST" 
-              onSubmit={e => {
-                e.preventDefault();
-                const form = e.target as HTMLFormElement;
-                const data = new FormData(form);
-                fetch('https://formspree.io/f/mwkgyqzv', {
-                  method: 'POST',
-                  body: data,
-                  headers: {
-                    'Accept': 'application/json',
-                  },
-                })
-                  .then(response => {
-                    if (response.ok) {
-                      setSubmitted(true);
-                      form.reset();
-                    } else {
-                      alert('There was an error sending your message. Please try again later.');
-                    }
-                  })
-                  .catch(() => {
-                    alert('There was an error sending your message. Please try again later.');
-                  });
-              }}
-            >
+            <form className="space-y-6" onSubmit={handleSubmit} noValidate>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className={`block text-sm font-medium mb-2 transition-colors duration-300 ${
@@ -214,7 +228,12 @@ export default function Contact({ isDark }: ContactProps) {
                         : 'bg-gray-900/10 border-gray-300/20 text-gray-900 placeholder-gray-500 focus:border-gray-500 focus:bg-gray-900/20'
                     }`}
                     placeholder="Your name"
+                    value={form.name}
+                    onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                    aria-invalid={!!errors.name}
+                    aria-describedby="name-error"
                   />
+                  {errors.name && <div id="name-error" className="text-red-500 text-xs mt-1">{errors.name}</div>}
                 </div>
                 <div>
                   <label htmlFor="email" className={`block text-sm font-medium mb-2 transition-colors duration-300 ${
@@ -233,7 +252,12 @@ export default function Contact({ isDark }: ContactProps) {
                         : 'bg-gray-900/10 border-gray-300/20 text-gray-900 placeholder-gray-500 focus:border-gray-500 focus:bg-gray-900/20'
                     }`}
                     placeholder="your@email.com"
+                    value={form.email}
+                    onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                    aria-invalid={!!errors.email}
+                    aria-describedby="email-error"
                   />
+                  {errors.email && <div id="email-error" className="text-red-500 text-xs mt-1">{errors.email}</div>}
                 </div>
               </div>
 
@@ -254,7 +278,12 @@ export default function Contact({ isDark }: ContactProps) {
                       : 'bg-gray-900/10 border-gray-300/20 text-gray-900 placeholder-gray-500 focus:border-gray-500 focus:bg-gray-900/20'
                   }`}
                   placeholder="Project inquiry"
+                  value={form.subject}
+                  onChange={e => setForm(f => ({ ...f, subject: e.target.value }))}
+                  aria-invalid={!!errors.subject}
+                  aria-describedby="subject-error"
                 />
+                {errors.subject && <div id="subject-error" className="text-red-500 text-xs mt-1">{errors.subject}</div>}
               </div>
 
               <div>
@@ -274,14 +303,21 @@ export default function Contact({ isDark }: ContactProps) {
                       : 'bg-gray-900/10 border-gray-300/20 text-gray-900 placeholder-gray-500 focus:border-gray-500 focus:bg-gray-900/20'
                   }`}
                   placeholder="Tell me about your project..."
+                  value={form.message}
+                  onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+                  aria-invalid={!!errors.message}
+                  aria-describedby="message-error"
                 ></textarea>
+                {errors.message && <div id="message-error" className="text-red-500 text-xs mt-1">{errors.message}</div>}
               </div>
 
+              {errors.form && <div className="text-red-500 text-sm mb-2">{errors.form}</div>}
               <button
                 type="submit"
-                className="w-full btn-primary flex items-center justify-center space-x-2 group"
-              >
-                <span>Send Message</span>
+                className="w-full btn-primary flex items-center justify-center space-x-2 group disabled:opacity-60 disabled:cursor-not-allowed"
+                disabled={loading}
+                >
+                {loading ? <span>Sending...</span> : <span>Send Message</span>}
                 <FaEnvelope className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </form>

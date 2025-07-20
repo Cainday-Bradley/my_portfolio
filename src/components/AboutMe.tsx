@@ -124,10 +124,11 @@ export default function AboutMe({ isDark }: AboutMeProps) {
                 download
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary flex items-center space-x-2 group"
+                className="btn-primary flex items-center space-x-2 group"
+                aria-label="Download Resume as PDF"
               >
                 <FaDownload className="w-4 h-4" />
-                <span>Download CV</span>
+                <span>Download Resume</span>
               </a>
             </motion.div>
 
@@ -151,6 +152,7 @@ export default function AboutMe({ isDark }: AboutMeProps) {
                   className={`relative w-full h-full object-cover rounded-3xl shadow-2xl border transition-colors duration-300 ${
                     isDark ? 'border-white/10' : 'border-gray-200'
                   }`}
+                  loading="lazy"
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = "none";
                   }}
