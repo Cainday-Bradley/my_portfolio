@@ -121,7 +121,7 @@ export default function AboutMe({ isDark }: AboutMeProps) {
                 <FaArrowRight className="w-4 h-4" />
               </span>
               <a
-                href="/src/assets/Bradley Cainday - Resume.pdf"
+                href="/Bradley Cainday - CV.pdf"
                 download
                 target="_blank"
                 rel="noopener noreferrer"

@@ -72,7 +72,7 @@ Hi! I'm **Brielle Cainday**, a passionate Front-End Developer focused on creatin
 
 ## 📄 Resume
 
-[Download Resume](src/assets/Bradley%20Cainday%20-%20Resume.pdf)
+[Download Resume](public/Bradley%20Cainday%20-%20CV.pdf)
 
 ---
 
