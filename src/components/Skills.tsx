@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { SiReact, SiAngular, SiVuedotjs, SiTypescript, SiTailwindcss, SiGit, SiJavascript, SiNodedotjs } from "react-icons/si";
+import { SiReact, SiAngular, SiVuedotjs, SiTypescript, SiTailwindcss, SiGit, SiJavascript, SiNodedotjs, SiJira } from "react-icons/si";
+import { FaFlask } from "react-icons/fa";
 import React from "react"; // Added missing import for React
 
 interface SkillsProps {
@@ -7,6 +8,22 @@ interface SkillsProps {
 }
 
 const skills = [
+  {
+    name: "Katalon",
+    icon: <FaFlask className="text-orange-500" />,
+    level: "Intermediate",
+    description: "Automation testing framework for UI and API testing",
+    color: "from-orange-400 to-red-500",
+    experience: "3 months"
+  },
+  {
+    name: "Jira",
+    icon: <SiJira className="text-blue-600" />,
+    level: "Intermediate",
+    description: "Test case creation, execution, and project management",
+    color: "from-blue-500 to-blue-600",
+    experience: "3 months"
+  },
   {
     name: "React",
     icon: <SiReact className="text-cyan-500" />,
@@ -119,7 +136,7 @@ export default function Skills({ isDark }: SkillsProps) {
         </motion.div>
 
         {/* Main Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 mb-20">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}

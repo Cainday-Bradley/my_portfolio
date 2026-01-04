@@ -67,7 +67,7 @@ export default function AboutMe({ isDark }: AboutMeProps) {
                   isDark ? 'text-white/90' : 'text-gray-800'
                 }`}
               >
-                Front-End Developer
+                Front-End Developer & Quality Engineer
               </motion.h2>
             </div>
 
@@ -80,8 +80,8 @@ export default function AboutMe({ isDark }: AboutMeProps) {
                 isDark ? 'text-white/70' : 'text-gray-600'
               }`}
             >
-              I'm a passionate Front-End Developer focused on creating beautiful, 
-              user-friendly web experiences that make a difference.
+              I'm a passionate Front-End Developer and Quality Engineer focused on creating beautiful, 
+              user-friendly web experiences and ensuring software quality through comprehensive testing.
             </motion.p>
 
             {/* Stats */}
@@ -121,7 +121,7 @@ export default function AboutMe({ isDark }: AboutMeProps) {
                 <FaArrowRight className="w-4 h-4" />
               </span>
               <a
-                href="/Bradley Cainday - CV.pdf"
+                href="/Bradley C. Cainday_Resume.pdf"
                 download
                 target="_blank"
                 rel="noopener noreferrer"

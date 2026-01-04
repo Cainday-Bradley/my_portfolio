@@ -1,6 +1,7 @@
 import "./App.css";
 import AboutMe from "./components/AboutMe";
 import Skills from "./components/Skills";
+import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import ThemeToggle from "./components/ThemeToggle";
@@ -68,7 +69,7 @@ function App() {
                 <span className="text-xl font-bold bg-gradient-to-r from-pink-300 to-pink-400 bg-clip-text text-transparent">Brielle</span>
                 <div className={`text-xs transition-colors duration-300 ${
                   isDark ? 'text-white/60' : 'text-gray-600'
-                }`}>Front-End Developer</div>
+                }`}>Front-End Developer & Quality Engineer</div>
               </div>
             </div>
             <div className="hidden lg:flex items-center space-x-3 border-l pl-4 transition-colors duration-300" style={{ borderColor: isDark ? 'rgba(255,255,255,0.2)' : '#d1d5db' }}>
@@ -114,6 +115,9 @@ function App() {
               <a href="#skills" className={`nav-link font-medium transition-colors duration-300 ${
                 isDark ? 'text-white/70 hover:text-white' : 'text-gray-700 hover:text-gray-900'
               }`}>Skills</a>
+              <a href="#experience" className={`nav-link font-medium transition-colors duration-300 ${
+                isDark ? 'text-white/70 hover:text-white' : 'text-gray-700 hover:text-gray-900'
+              }`}>Experience</a>
               <a href="#projects" className={`nav-link font-medium transition-colors duration-300 ${
                 isDark ? 'text-white/70 hover:text-white' : 'text-gray-700 hover:text-gray-900'
               }`}>Projects</a>
@@ -152,6 +156,7 @@ function App() {
               <nav className="flex flex-col space-y-6">
                 <a href="#about" className="text-lg font-medium text-gray-900 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors" onClick={() => setMobileMenuOpen(false)}>About</a>
                 <a href="#skills" className="text-lg font-medium text-gray-900 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors" onClick={() => setMobileMenuOpen(false)}>Skills</a>
+                <a href="#experience" className="text-lg font-medium text-gray-900 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors" onClick={() => setMobileMenuOpen(false)}>Experience</a>
                 <a href="#projects" className="text-lg font-medium text-gray-900 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors" onClick={() => setMobileMenuOpen(false)}>Projects</a>
                 <a href="#contact" className="text-lg font-medium text-gray-900 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</a>
               </nav>
@@ -176,10 +181,15 @@ function App() {
         <div className={`transition-colors duration-300 ${
           isDark ? 'bg-gradient-to-b from-black/50 to-transparent' : 'bg-gradient-to-b from-gray-100/50 to-transparent'
         }`}>
-          <Projects isDark={isDark} />
+          <Experience isDark={isDark} />
         </div>
         <div className={`transition-colors duration-300 ${
           isDark ? 'bg-gradient-to-b from-transparent to-black/50' : 'bg-gradient-to-b from-transparent to-gray-100/50'
+        }`}>
+          <Projects isDark={isDark} />
+        </div>
+        <div className={`transition-colors duration-300 ${
+          isDark ? 'bg-gradient-to-b from-black/50 to-transparent' : 'bg-gradient-to-b from-gray-100/50 to-transparent'
         }`}>
           <Contact isDark={isDark} />
         </div>
@@ -203,7 +213,7 @@ function App() {
               <p className={`text-sm leading-relaxed transition-colors duration-300 ${
                 isDark ? 'text-white/60' : 'text-gray-600'
               }`}>
-                Front-end developer passionate about creating beautiful, user-friendly web experiences.
+                Front-end developer and quality engineer passionate about creating beautiful, user-friendly web experiences and ensuring software quality.
               </p>
             </div>
             
@@ -218,6 +228,9 @@ function App() {
                 <a href="#skills" className={`block transition-colors text-sm ${
                   isDark ? 'text-white/60 hover:text-white' : 'text-gray-600 hover:text-gray-900'
                 }`}>Skills</a>
+                <a href="#experience" className={`block transition-colors text-sm ${
+                  isDark ? 'text-white/60 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                }`}>Experience</a>
                 <a href="#projects" className={`block transition-colors text-sm ${
                   isDark ? 'text-white/60 hover:text-white' : 'text-gray-600 hover:text-gray-900'
                 }`}>Projects</a>
