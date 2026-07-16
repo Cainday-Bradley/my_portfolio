@@ -12,10 +12,23 @@ interface ExperienceProps {
 
 const experiences = [
   {
+    title: "Associate Software Engineer",
+    company: "Accenture",
+    location: "Philippines",
+    period: "2026 - Present",
+    responsibilities: [
+      "Started my journey at Accenture as an Associate Software Engineer in the Data and Analytics domain.",
+      "Gained hands-on experience through a Data and Analytics Bootcamp focused on Microsoft Azure services such as Azure Data Factory, Azure Databricks, and Microsoft Fabric.",
+      "Developed practical skills in data engineering and analytics, including ETL processes, data transformation, and analytics workflow development.",
+      "Worked with Power BI to turn data into meaningful insights and support reporting and decision-making."
+    ]
+  },
+  {
     title: "Quality Engineer Intern",
     company: "Manulife",
     location: "Makati",
     period: "2025",
+    showHighlights: true,
     responsibilities: [
       "Performed manual UI testing to validate functionality, usability, and identify defects using Jira to create test cases and execute test scenarios",
       "Implemented automation testing using Katalon to enhance UI test coverage and improve testing efficiency",
@@ -141,110 +154,114 @@ export default function Experience({ isDark }: ExperienceProps) {
                 </div>
               </div>
 
-              {/* Certificate Section */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="mt-8 pt-8 border-t"
-                style={{ borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)' }}
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
-                      <FaCertificate className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <h4 className={`font-semibold transition-colors duration-300 ${
-                        isDark ? 'text-white' : 'text-gray-900'
-                      }`}>
-                        Completion Certificate
-                      </h4>
-                      <p className={`text-sm transition-colors duration-300 ${
-                        isDark ? 'text-white/60' : 'text-gray-600'
-                      }`}>
-                        Proof of successful internship completion
-                      </p>
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => setShowCertificate(true)}
-                    className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 ${
-                      isDark
-                        ? 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
-                        : 'bg-gray-900/10 hover:bg-gray-900/20 text-gray-900 border border-gray-300'
-                    }`}
+              {exp.showHighlights && (
+                <>
+                  {/* Certificate Section */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4 }}
+                    className="mt-8 pt-8 border-t"
+                    style={{ borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)' }}
                   >
-                    View Certificate
-                  </button>
-                </div>
-                <div
-                  onClick={() => setShowCertificate(true)}
-                  className="relative cursor-pointer group overflow-hidden rounded-xl border"
-                  style={{ borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)' }}
-                >
-                  <img
-                    src={certificate}
-                    alt="Internship Completion Certificate"
-                    className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                    <span className={`text-white font-medium ${isDark ? '' : ''}`}>
-                      Click to view full size
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Internship Photos Gallery */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 }}
-                className="mt-8 pt-8 border-t"
-                style={{ borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)' }}
-              >
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
-                    <FaImages className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h4 className={`font-semibold transition-colors duration-300 ${
-                      isDark ? 'text-white' : 'text-gray-900'
-                    }`}>
-                      Internship Experience
-                    </h4>
-                    <p className={`text-sm transition-colors duration-300 ${
-                      isDark ? 'text-white/60' : 'text-gray-600'
-                    }`}>
-                      Moments from my time at Manulife
-                    </p>
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {internshipPhotos.map((photo, idx) => (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.7 + idx * 0.1 }}
-                      onClick={() => setSelectedImage(photo)}
-                      className="relative cursor-pointer group overflow-hidden rounded-xl border aspect-[4/3]"
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
+                          <FaCertificate className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <h4 className={`font-semibold transition-colors duration-300 ${
+                            isDark ? 'text-white' : 'text-gray-900'
+                          }`}>
+                            Completion Certificate
+                          </h4>
+                          <p className={`text-sm transition-colors duration-300 ${
+                            isDark ? 'text-white/60' : 'text-gray-600'
+                          }`}>
+                            Proof of successful internship completion
+                          </p>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => setShowCertificate(true)}
+                        className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 ${
+                          isDark
+                            ? 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
+                            : 'bg-gray-900/10 hover:bg-gray-900/20 text-gray-900 border border-gray-300'
+                        }`}
+                      >
+                        View Certificate
+                      </button>
+                    </div>
+                    <div
+                      onClick={() => setShowCertificate(true)}
+                      className="relative cursor-pointer group overflow-hidden rounded-xl border"
                       style={{ borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)' }}
                     >
                       <img
-                        src={photo}
-                        alt={`Internship experience ${idx + 1}`}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        src={certificate}
+                        alt="Internship Completion Certificate"
+                        className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                        <span className={`text-white font-medium ${isDark ? '' : ''}`}>
+                          Click to view full size
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Internship Photos Gallery */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6 }}
+                    className="mt-8 pt-8 border-t"
+                    style={{ borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)' }}
+                  >
+                    <div className="flex items-center space-x-3 mb-6">
+                      <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                        <FaImages className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <h4 className={`font-semibold transition-colors duration-300 ${
+                          isDark ? 'text-white' : 'text-gray-900'
+                        }`}>
+                          Internship Experience
+                        </h4>
+                        <p className={`text-sm transition-colors duration-300 ${
+                          isDark ? 'text-white/60' : 'text-gray-600'
+                        }`}>
+                          Moments from my time at Manulife
+                        </p>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      {internshipPhotos.map((photo, idx) => (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.7 + idx * 0.1 }}
+                          onClick={() => setSelectedImage(photo)}
+                          className="relative cursor-pointer group overflow-hidden rounded-xl border aspect-[4/3]"
+                          style={{ borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)' }}
+                        >
+                          <img
+                            src={photo}
+                            alt={`Internship experience ${idx + 1}`}
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                </>
+              )}
             </motion.div>
           ))}
         </div>

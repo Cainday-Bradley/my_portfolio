@@ -1,13 +1,45 @@
 import { motion } from "framer-motion";
 import { SiReact, SiAngular, SiVuedotjs, SiTypescript, SiTailwindcss, SiGit, SiJavascript, SiNodedotjs, SiJira } from "react-icons/si";
-import { FaFlask } from "react-icons/fa";
-import React from "react"; // Added missing import for React
+import { FaFlask, FaCloud, FaDatabase, FaChartBar } from "react-icons/fa";
+import React from "react";
 
 interface SkillsProps {
   isDark: boolean;
 }
 
 const skills = [
+  {
+    name: "Azure Data Factory",
+    icon: <FaDatabase className="text-blue-500" />,
+    level: "Intermediate",
+    description: "Cloud-based ETL and data integration workflows",
+    color: "from-blue-500 to-cyan-500",
+    experience: "New"
+  },
+  {
+    name: "Azure Databricks",
+    icon: <FaCloud className="text-blue-500" />,
+    level: "Intermediate",
+    description: "Big data processing and collaborative analytics",
+    color: "from-blue-500 to-indigo-600",
+    experience: "New"
+  },
+  {
+    name: "Microsoft Fabric",
+    icon: <FaCloud className="text-cyan-500" />,
+    level: "Intermediate",
+    description: "End-to-end analytics and data platform solutions",
+    color: "from-cyan-500 to-blue-600",
+    experience: "New"
+  },
+  {
+    name: "Power BI",
+    icon: <FaChartBar className="text-yellow-500" />,
+    level: "Intermediate",
+    description: "Interactive dashboards and data visualization",
+    color: "from-yellow-500 to-orange-500",
+    experience: "New"
+  },
   {
     name: "Katalon",
     icon: <FaFlask className="text-orange-500" />,
@@ -91,8 +123,8 @@ const skills = [
 ];
 
 const additionalSkills = [
-  "HTML", "CSS", "REST APIs", "Responsive Design", "UI/UX Design", 
-  "Testing", "Figma", "Vite", "Next.js"
+  "ETL", "Data Transformation", "Data Modeling", "Power Query", "DAX",
+  "Azure Synapse", "SQL", "Reporting", "Testing", "Figma", "Vite"
 ];
 
 export default function Skills({ isDark }: SkillsProps) {
@@ -130,8 +162,7 @@ export default function Skills({ isDark }: SkillsProps) {
           <p className={`text-xl max-w-3xl mx-auto leading-relaxed transition-colors duration-300 ${
             isDark ? 'text-white/70' : 'text-gray-600'
           }`}>
-            I specialize in modern front-end technologies and frameworks, 
-            creating responsive and performant web applications that deliver exceptional user experiences.
+            I specialize in data engineering, analytics, and cloud-based solutions, combining practical ETL knowledge with modern visualization and reporting tools.
           </p>
         </motion.div>
 
@@ -253,7 +284,7 @@ export default function Skills({ isDark }: SkillsProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <span className="text-white font-bold text-2xl">2+</span>
+                <span className="text-white font-bold text-2xl">3+</span>
               </div>
               <h4 className={`text-xl font-semibold mb-2 transition-colors duration-300 ${
                 isDark ? 'text-white' : 'text-gray-900'

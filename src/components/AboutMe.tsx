@@ -8,7 +8,7 @@ interface AboutMeProps {
 
 export default function AboutMe({ isDark }: AboutMeProps) {
   return (
-    <section id="about" className="min-h-screen flex items-center py-20 relative overflow-hidden">
+    <section id="about" className="min-h-screen flex items-start py-12 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-red-500/10 rounded-full blur-3xl"></div>
@@ -67,7 +67,7 @@ export default function AboutMe({ isDark }: AboutMeProps) {
                   isDark ? 'text-white/90' : 'text-gray-800'
                 }`}
               >
-                Front-End Developer & Quality Engineer
+                Software Engineer | Data & Analytics Engineer
               </motion.h2>
             </div>
 
@@ -80,8 +80,7 @@ export default function AboutMe({ isDark }: AboutMeProps) {
                 isDark ? 'text-white/70' : 'text-gray-600'
               }`}
             >
-              I'm a passionate Front-End Developer and Quality Engineer focused on creating beautiful, 
-              user-friendly web experiences and ensuring software quality through comprehensive testing.
+              I’m a software engineer with a strong focus on building reliable solutions across software development, web development, data engineering, analytics, and cloud platforms. My work spans web applications, backend systems, ETL processes, data transformation, Azure-based workflows, and Power BI reporting to turn data into meaningful insights.
             </motion.p>
 
             {/* Stats */}
@@ -94,7 +93,7 @@ export default function AboutMe({ isDark }: AboutMeProps) {
               <div className="text-center">
                 <div className={`text-2xl font-bold transition-colors duration-300 ${
                   isDark ? 'text-white' : 'text-gray-900'
-                }`}>2+</div>
+                }`}>3+</div>
                 <div className={`text-sm transition-colors duration-300 ${
                   isDark ? 'text-white/60' : 'text-gray-600'
                 }`}>Years Experience</div>
@@ -110,12 +109,7 @@ export default function AboutMe({ isDark }: AboutMeProps) {
             </motion.div>
 
             {/* Call to Action */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
+            <div className="flex flex-col sm:flex-row gap-4">
               <span className="flex items-center space-x-2 text-base font-semibold text-red-500 select-none">
                 <span>Hire Me</span>
                 <FaArrowRight className="w-4 h-4" />
@@ -131,7 +125,7 @@ export default function AboutMe({ isDark }: AboutMeProps) {
                 <FaDownload className="w-4 h-4" />
                 <span>Download Resume</span>
               </a>
-            </motion.div>
+            </div>
 
           </motion.div>
 
@@ -139,8 +133,8 @@ export default function AboutMe({ isDark }: AboutMeProps) {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.5, delay: 0.05, type: "spring" }}
             className="relative"
           >
             {/* Profile Image */}
@@ -165,7 +159,8 @@ export default function AboutMe({ isDark }: AboutMeProps) {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+              viewport={{ once: true, amount: 0.12 }}
+              transition={{ delay: 0.35, duration: 0.35 }}
               className={`absolute -bottom-0 -left-8 backdrop-blur-md border rounded-2xl p-6 max-w-xs shadow-2xl transition-colors duration-300 ${
                 isDark 
                   ? 'bg-black/80 border-white/10' 
@@ -176,12 +171,12 @@ export default function AboutMe({ isDark }: AboutMeProps) {
               <p className={`text-sm leading-relaxed transition-colors duration-300 ${
                 isDark ? 'text-white/80' : 'text-gray-700'
               }`}>
-                Modern web technologies and creating exceptional user experiences.
+                Modern web development and backend engineering, alongside data engineering practices, Azure platforms, and analytics solutions that drive smarter decisions.
               </p>
               <p className={`text-sm mt-3 transition-colors duration-300 ${
                 isDark ? 'text-white/70' : 'text-gray-600'
               }`}>
-                Let's collaborate to bring your ideas to life with cutting-edge design and development.
+                Let’s collaborate to build impactful, reliable, and visually clear web and data-driven solutions.
               </p>
             </motion.div>
 
@@ -197,7 +192,8 @@ export default function AboutMe({ isDark }: AboutMeProps) {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ delay: 1 }}
+        viewport={{ once: true, amount: 0.05 }}
+        transition={{ delay: 0.4, duration: 0.35 }}
         className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-30 pointer-events-none"
       >
         <div className="flex flex-col items-center space-y-2">

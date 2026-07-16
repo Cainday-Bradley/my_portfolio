@@ -69,7 +69,7 @@ function App() {
                 <span className="text-xl font-bold bg-gradient-to-r from-pink-300 to-pink-400 bg-clip-text text-transparent">Brielle</span>
                 <div className={`text-xs transition-colors duration-300 ${
                   isDark ? 'text-white/60' : 'text-gray-600'
-                }`}>Front-End Developer & Quality Engineer</div>
+                }`}>Software Engineer | Data & Analytics Engineer</div>
               </div>
             </div>
             <div className="hidden lg:flex items-center space-x-3 border-l pl-4 transition-colors duration-300" style={{ borderColor: isDark ? 'rgba(255,255,255,0.2)' : '#d1d5db' }}>
@@ -213,7 +213,7 @@ function App() {
               <p className={`text-sm leading-relaxed transition-colors duration-300 ${
                 isDark ? 'text-white/60' : 'text-gray-600'
               }`}>
-                Front-end developer and quality engineer passionate about creating beautiful, user-friendly web experiences and ensuring software quality.
+                Software engineer passionate about building reliable web applications, Azure-based data solutions, ETL workflows, analytics, and Power BI dashboards.
               </p>
             </div>
             
